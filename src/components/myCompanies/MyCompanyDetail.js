@@ -23,7 +23,9 @@ class MyCompanyDetail extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     let companyid = this.props.companyId
+    console.log(companyid)
     // let userid = this.props.currentUser.user.id
     // let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/companies/${companyid}`
     let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/1/companies/${companyid}`

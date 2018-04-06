@@ -237,7 +237,7 @@ class MyJobsItemDetail extends React.Component {
         return(
           <div className="company">
 
-          <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.props.jobcompany_id}/>
+          <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.state.company.id}/>
         </div>
       )}
     else {

@@ -12,8 +12,6 @@ import throttle from 'lodash/throttle'
 import * as Actions from './actions'
 import { loadState, saveState } from './localStorage'
 
-import { composeWithDevTools } from 'redux-devtools-extension';
-import 'draft-js/dist/Draft.css';
 
 
 const persistedState = loadState();
@@ -27,7 +25,7 @@ const persistedState = loadState();
 // const store = configureStore()
 
 const store = createStore(reducers, persistedState,
-  composeWithDevTools(applyMiddleware(thunk))
+  applyMiddleware(thunk)
 );
 
 

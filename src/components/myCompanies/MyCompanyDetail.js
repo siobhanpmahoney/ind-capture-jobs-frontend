@@ -25,8 +25,8 @@ class MyCompanyDetail extends React.Component {
   componentDidMount() {
     let companyid = this.props.companyId
     // let userid = this.props.currentUser.user.id
-    // let url = `http://localhost:3000/api/v1/users/${userid}/companies/${companyid}`
-    let url = `http://localhost:3000/api/v1/users/1/companies/${companyid}`
+    // let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/companies/${companyid}`
+    let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/1/companies/${companyid}`
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({

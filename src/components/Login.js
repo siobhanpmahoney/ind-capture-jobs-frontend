@@ -30,7 +30,7 @@ class Login extends React.Component {
   loginUser = (event) => {
     const token = localStorage.getItem('token')
     event.preventDefault()
-    return fetch("http://localhost:3000/api/v1/login", {
+    return fetch("http://capture-jobs-api.herokuapp.com/api/v1/login", {
       method: 'POST',
       headers:  {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ class Login extends React.Component {
 
   signUpUser = (event) => {
     event.preventDefault()
-    fetch("http://localhost:3000/api/v1/signup", {
+    fetch("http://capture-jobs-api.herokuapp.com/api/v1/signup", {
       method: 'POST',
       headers:
       {

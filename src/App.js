@@ -66,7 +66,7 @@ class App extends Component {
 
     const token=localStorage.getItem('token')
     if (token) {
-      return fetch("http://capture-jobs-api.herokuapp.com/api/v1/current_user", {
+      return fetch("https://capture-jobs-api.herokuapp.com/api/v1/current_user", {
         headers:  {
           'Content-Type': 'application/json',
           Accepts: 'application/json',

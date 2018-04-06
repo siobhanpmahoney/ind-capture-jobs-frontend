@@ -54,7 +54,7 @@ class MyJobsItemDetail extends React.Component {
       savedInfoDisplay: "job",
       noteStatusNew: true
     })
-    // let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/${this.props.currentUser.user.id}/jobs/${this.props.match.params.jobId}`
+    // let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${this.props.currentUser.user.id}/jobs/${this.props.match.params.jobId}`
     // fetch(url)
     // .then(response => response.json())
     // .then(json => {

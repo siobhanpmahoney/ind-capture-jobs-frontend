@@ -9,7 +9,7 @@ export const ADD_NEW_BOOKMARK = 'ADD_NEW_BOOKMARK'
 
 export function loadCurrentUser(user) {
   return (dispatch) => {
-    fetch(`http://capture-jobs-api.herokuapp.com/api/v1/users/${user.id}`)
+    fetch(`https://capture-jobs-api.herokuapp.com/api/v1/users/${user.id}`)
     .then(response => response.json())
     .then(json => dispatch({
       type: CURRENT_USER,
@@ -25,7 +25,7 @@ export function loadCurrentUser(user) {
 }
 
 export function editJob(userid, selectedJob) {
-  let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs/${selectedJob.id}`
+  let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs/${selectedJob.id}`
   console.log(url)
   return(dispatch) => {
     return fetch(url,
@@ -67,7 +67,7 @@ export function editJob(userid, selectedJob) {
 }
 
 export function deleteJob(userid, selectedJobId) {
-  let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs/${selectedJobId}`
+  let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs/${selectedJobId}`
   debugger
   console.log("in deleteJob action")
   console.log("in deleteJob action, url", url)
@@ -86,7 +86,7 @@ export function deleteJob(userid, selectedJobId) {
 export function saveNewJob(userid, selectedJob) {
   console.log("in action", selectedJob)
   return(dispatch) => {
-    fetch(`http://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs`,
+    fetch(`https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs`,
       {
         method: 'post',
         headers: {
@@ -121,7 +121,7 @@ export function saveNewJob(userid, selectedJob) {
 
 export function addNewNote(selectedNote, noteUserId, noteCompanyId, noteJobId) {
   return(dispatch) => {
-    fetch(`http://capture-jobs-api.herokuapp.com/api/v1/notes`, {
+    fetch(`https://capture-jobs-api.herokuapp.com/api/v1/notes`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ export function addNewNote(selectedNote, noteUserId, noteCompanyId, noteJobId) {
 }
 
 export function editNote(selectedNote, noteUserId, noteJobId, noteCompanyId) {
-  let url = "http://capture-jobs-api.herokuapp.com/api/v1/notes/" + selectedNote.id
+  let url = "https://capture-jobs-api.herokuapp.com/api/v1/notes/" + selectedNote.id
   return(dispatch) => {
     return fetch(url,
       {
@@ -177,7 +177,7 @@ export function editNote(selectedNote, noteUserId, noteJobId, noteCompanyId) {
 export function addNewBookmark(bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId) {
   console.log(bookmarkTitle, bookmarkUrl, bookmarkUserId, bookmarkCompanyId)
   return (dispatch) => {
-    fetch('http://capture-jobs-api.herokuapp.com/api/v1/bookmarks', {
+    fetch('https://capture-jobs-api.herokuapp.com/api/v1/bookmarks', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

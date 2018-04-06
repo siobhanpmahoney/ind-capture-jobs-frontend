@@ -27,7 +27,7 @@ class CompanyDetail extends React.Component {
 
 
     // let userid = this.props.currentUser.user.id
-    // let url = `http://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/companies/${companyid}`
+    // let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/companies/${companyid}`
     let url = `https://api-v2.themuse.com/companies/${musecompanyid}`
     
     fetch(url)

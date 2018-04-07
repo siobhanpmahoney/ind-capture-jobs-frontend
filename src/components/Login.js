@@ -85,7 +85,7 @@ class Login extends React.Component {
       <form>
       <input type="text" name="username" onChange={this.formListener} />
       <input type="password" name="password" onChange={this.formListener} />
-      <button className="buttons" onClick={this.loginUser} style={{backgroundColor:"#21d8f8", color:"white", padding:"0.25em"}}>Login</button>
+      <button className="buttons" onClick={this.loginUser} style=style={{backgroundColor:"#21d8f8", color:"white", padding:"0.5em", fontFamily: "Avenir", borderRadius:"6px"}}>Login</button>
       </form>
 
       <h3>Sign Up</h3>
@@ -93,7 +93,7 @@ class Login extends React.Component {
         <input type="text" name="username" onChange={this.formListener} />
         <input type="password" name="password" onChange={this.formListener} />
         <input type="password" name="password_confirmation" onChange={this.formListener} />
-        <button className="buttons" onClick={this.signUpUser} style={{backgroundColor:"#21d8f8", color:"white", padding:"0.25em"}}>Sign Up</button>
+        <button className="buttons" onClick={this.signUpUser} style={{backgroundColor:"#21d8f8", color:"white", padding:"0.5em", fontFamily: "Avenir", borderRadius:"6px"}}>Sign Up</button>
       </form>
       </div>
     )

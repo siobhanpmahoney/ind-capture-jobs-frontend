@@ -85,7 +85,7 @@ class Login extends React.Component {
       <form>
       <input type="text" name="username" onChange={this.formListener} />
       <input type="password" name="password" onChange={this.formListener} />
-      <button className="buttons" onClick={this.loginUser} style=style={{backgroundColor:"#21d8f8", color:"white", padding:"0.5em", fontFamily: "Avenir", borderRadius:"6px"}}>Login</button>
+      <button className="buttons" onClick={this.loginUser} style={{backgroundColor:"#21d8f8", color:"white", padding:"0.5em", fontFamily: "Avenir", borderRadius:"6px"}}>Login</button>
       </form>
 
       <h3>Sign Up</h3>

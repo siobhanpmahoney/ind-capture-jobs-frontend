@@ -4,6 +4,14 @@
   color: #3C475C;
 }
 
+a:link {
+  color: #21d8f8;
+}
+
+a: {
+  visited: #137D90;
+}
+
 .profile {
   /* background-color: #f6f8fe90; */
 }
@@ -40,6 +48,8 @@ input[type=submit] {
     padding: 6px 6px;
     border-radius: 3px;
 }
+
+
 
 .myJobDetailDashboard input[type=text] {
   border-bottom: 1px solid #7590AC;
@@ -79,7 +89,7 @@ input[type=submit] {
 
 .myJobDetailDashboard input[type=checkbox] {
   border-style: none;
-  color: #00A8CA;
+  color: #7590ac;
   font-family: "Avenir";
   font-size: 14px;
   padding: 6px 6px;
@@ -87,8 +97,8 @@ input[type=submit] {
 }
 
 .myJobDetailDashboard select {
-  border: 1px solid #00A8CA;
-  color: #00A8CA;
+  border: 1px solid #7590ac;
+  color: #7590ac;
   font-family: "Avenir";
   font-size: 13px;
   padding: 10px 10px;

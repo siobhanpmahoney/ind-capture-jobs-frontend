@@ -42,11 +42,11 @@ input[type=submit] {
 }
 
 .myJobDetailDashboard input[type=text] {
-  border-bottom: 1px solid #00A8CA;
+  border-bottom: 1px solid #7590AC;
   border-top: none;
   border-right: none;
   border-left: none;
-  color: #00A8CA;
+  color: #7590AC;
   font-family: "Avenir";
   font-size: 14px;
   padding: 6px 6px;
@@ -285,7 +285,6 @@ input[type=submit] {
   display: inline-block;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
   float: left;
-  border-bottom: solid 0.25em #7FE6E1;
   border-radius: 6px;
 }
 

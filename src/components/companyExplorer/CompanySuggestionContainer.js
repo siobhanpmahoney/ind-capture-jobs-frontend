@@ -44,7 +44,7 @@ class CompanySuggestionContainer extends React.Component {
     }
     return (
       <div>
-        <span style={{fontWeight:"700", fontSize:"28px", color:"#435362", fontFamily:"Gill Sans", padding: "0.5em"}}>Check out these Companies!</span>
+        <span style={{fontWeight:"700", fontSize:"28px", color:"#435362", fontFamily:"Avenir Next", padding: "0.5em"}}>Check out these Companies!</span>
         <div className="companySearchResults">
           {this.state.companySearchResults.map((company) => {
             return<div><CompanySearchResultItem company={company} key={company.id} /></div>

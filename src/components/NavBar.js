@@ -30,18 +30,18 @@ class NavBar extends React.Component {
         <span style={{backgroundColor:"backgroundColor: #ffffffbd", padding:"1em", margin:"1em"}}>
 
           <span style={{float:"right", style:"inline"}}>
-        <NavLink to="/" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}>Profile</NavLink>
+        <NavLink to="/" exact style={link} activeStyle={{textDecoration:"underline"}}>Profile</NavLink>
 
-      <NavLink to="/search/jobs" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}>Search Jobs</NavLink>
+      <NavLink to="/search/jobs" exact style={link} activeStyle={{textDecoration:"underline"}}>Search Jobs</NavLink>
 
-        <NavLink to="/search/companies" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}>Explore Companies</NavLink>
+        <NavLink to="/search/companies" exact style={link} activeStyle={{textDecoration:"underline"}}>Explore Companies</NavLink>
 
-        <NavLink to="/myjobs" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}>My Jobs</NavLink>
+        <NavLink to="/myjobs" exact style={link} activeStyle={{textDecoration:"underline"}}>My Jobs</NavLink>
 
-      <NavLink to="/mycompanies" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}>My Companies</NavLink>
+      <NavLink to="/mycompanies" exact style={link} activeStyle={{textDecoration:"underline"}}>My Companies</NavLink>
 
 
-    <NavLink onClick={this.props.logOutUser} to="/logout" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}> Log Out </NavLink>
+    <NavLink onClick={this.props.logOutUser} to="/logout" exact style={link} activeStyle={{textDecoration:"underline"}}> Log Out </NavLink>
     </span>
   </span>
   )
@@ -54,7 +54,7 @@ class NavBar extends React.Component {
             exact
             style={link}
             activeStyle={{
-              backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"
+              textDecoration:"underline"
             }}>Log In</NavLink>
         </span>
         )
@@ -64,7 +64,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar" style={{backgroundColor:"#ffffffbd", padding:"1.5em"}}>
-        <span style={{color:"#F15F79", fontSize:"42px", fontWeight:"700", fontFamily:"Gill Sans", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em"}}
+        <span style={{color:"#21d8f8", fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em"}}
           >
           Capture</span>
         {this.renderHTML()}

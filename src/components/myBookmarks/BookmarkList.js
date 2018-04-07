@@ -17,7 +17,7 @@ class BookmarkList extends React.Component {
             <summary style={{background:"white 50%", padding:"0.5em", fontFamily:"Avenir"}}>
               <a href={bookmark.url} target="_blank">{bookmark.title}</a>
             </summary>
-            <div style={{background:"white", fontSize:"14px", padding:"0.5em", fontFamily:"calibri"}}>
+            <div style={{background:"white", fontSize:"14px", padding:"0.5em", fontFamily:"Avenir"}}>
               <b>{bookmark.source_name}</b><br />
               {bookmark.summary}
 

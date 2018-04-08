@@ -64,7 +64,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar" style={{backgroundColor:"#ffffffbd", padding:"1.5em"}}>
-        <span style={{color:"#21d8f8", fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em 1em"}}
+        <span style={{color:"#5EC4FF", fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em 1em"}}
           >
           Capture</span>
         {this.renderHTML()}

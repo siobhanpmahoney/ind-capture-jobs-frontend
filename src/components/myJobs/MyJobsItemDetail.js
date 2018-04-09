@@ -264,8 +264,6 @@ class MyJobsItemDetail extends React.Component {
 
 
   render() {
-
-  debugger
   if (!this.state.job) {
     return <div>Loading</div>;
       }

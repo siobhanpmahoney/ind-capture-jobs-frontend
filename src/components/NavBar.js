@@ -15,7 +15,7 @@ const link = {
   marginBottom: '1em',
   marginLeft: '0.75em',
   marginRight: '0.75em',
-  color: '#718CA1',
+  color: '#F7F9FA',
   fontSize: '13px',
   alignText: "right",
   textDecoration: "none",
@@ -63,8 +63,8 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="navbar" style={{backgroundColor:"#ffffffbd", padding:"1.5em"}}>
-        <span style={{color:"#5EC4FF", fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em 1em"}}
+      <div className="navbar">
+        <span className="captureLogo" style={{fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em 1em"}}
           >
           Capture</span>
         {this.renderHTML()}

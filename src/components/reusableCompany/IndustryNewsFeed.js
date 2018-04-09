@@ -19,12 +19,24 @@ class IndustryNewsFeed extends React.Component {
   }
 
   componentDidMount() {
-
     let articlesForState = []
-    if (this.props.company.industries.length > 0) {
+    if (!!this.props.company.industries) {
       this.props.company.industries.map((i) => {
         let searchCompany = i.name.split(" ").join("+")
           let articleUrl = `https://newsapi.org/v2/everything?q=%22${searchCompany}+industry%22&pageSize=100&domains=alleywatch.com,bloomberg.com,businessinsider.com,cnbc.com,dealabs.com,digiday.com,engadget.com,entrepreneur.com,inc.com,mashable.com,nytimes.com,recode.com,seekingalpha.com,techcrunch.com,techdirt.com,techradar.com,thenextweb.com,theverge.com,wsj.com,wired.com,forbes.com&language=en&sortBy=relevancy&apiKey=ad5900690118454582f702c63e4286f8`
+          fetch(articleUrl)
+            .then(response => response.json())
+            .then(json => json.articles.map((a) => {
+
+               articlesForState.push(a)
+               return articlesForState.sort((a,b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+            }))
+      })
+    } else if (!!this.props.company.industry_name) {
+    let searchCompany = this.props.company.industry_name.split(" ").join("+")
+    console.log(searchCompany)
+          let articleUrl = `https://newsapi.org/v2/everything?q=%22${searchCompany}+industry%22&pageSize=100&domains=alleywatch.com,bloomberg.com,businessinsider.com,cnbc.com,dealabs.com,digiday.com,engadget.com,entrepreneur.com,inc.com,mashable.com,nytimes.com,recode.com,seekingalpha.com,techcrunch.com,techdirt.com,techradar.com,thenextweb.com,theverge.com,wsj.com,wired.com,forbes.com&language=en&sortBy=relevancy&apiKey=ad5900690118454582f702c63e4286f8`
+          console.log(articleUrl)
           fetch(articleUrl)
             .then(response => response.json())
             .then(json => json.articles.map((a) => {
@@ -32,7 +44,7 @@ class IndustryNewsFeed extends React.Component {
                articlesForState.push(a)
                return articlesForState.sort((a,b) => new Date(b.publishedAt) - new Date(a.publishedAt))
             }))
-      })
+
     }
 
     console.log(articlesForState)
@@ -59,6 +71,7 @@ dynamicBookmarkIcon = (info) => {
 }
 
   render() {
+    debugger
     if (!this.props) {
       return<div>Loading!</div>
     }
@@ -73,7 +86,7 @@ dynamicBookmarkIcon = (info) => {
           return <div style={{display: "inlineBlock", float:"left", verticalAlign: "top", background:"white", boxShadow:"rgba(0, 0, 0, 0.25) 0px 14px 14px, rgba(0, 0, 0, 0.22) 0px 10px 10px", margin: "1em", padding: "0.25em", height: "300px", width: "275px"}}>
 
             <div style={{margin:"-1em"}}>
-            <div style={{margin:"0.75em", padding:"0.5em", fontSize:"12.5px", fontWeight:"bold", display:"block", backgroundColor:"#A2C8E7", color:"white"}}>{article.source.name}</div>
+            <div style={{margin:"0.75em", padding:"0.5em", fontSize:"12.5px", fontWeight:"bold", display:"block", backgroundColor:"#07d2e4", color:"white"}}>{article.source.name}</div>
             </div>
 
 <div>

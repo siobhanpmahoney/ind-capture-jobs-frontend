@@ -64,11 +64,11 @@ dynamicBookmarkIcon = (info) => {
     // console.log(this.props)
     return (
       <div>
-        {this.state.pressReleases.map((press) => {
+        {this.state.pressReleases.slice(0,14).map((press) => {
           return <div style={{display: "inlineBlock", float:"left", verticalAlign: "top", background:"white", boxShadow:"rgba(0, 0, 0, 0.25) 0px 14px 14px, rgba(0, 0, 0, 0.22) 0px 10px 10px", margin: "1em", padding: "0.25em", height: "300px", width: "250px"}}>
 
             <div style={{margin:"-1em"}}>
-            <div style={{margin:"0.75em", padding:"0.5em", fontSize:"12.5px", fontWeight:"bold", display:"block", backgroundColor:"#809EB7", color:"white"}}>{press.source.name}</div>
+            <div style={{margin:"0.75em", padding:"0.5em", fontSize:"12.5px", fontWeight:"bold", display:"block", backgroundColor:"#00b7c4", color:"white"}}>{press.source.name}</div>
             </div>
 
 <div>

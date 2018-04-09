@@ -6,6 +6,7 @@ import * as Actions from '../../actions'
 import MyJobsItem from '../myJobs/MyJobsItem'
 import CompanyArticleFeed from '../reusableCompany/CompanyArticleFeed'
 import CompanyPRFeed from '../reusableCompany/CompanyPRFeed'
+import IndustryNewsFeed from '../reusableCompany/IndustryNewsFeed'
 import JobSearchResultList from '../jobExplorer/JobSearchResultList'
 import JobSearchResultItem from '../jobExplorer/JobSearchResultList'
 
@@ -28,7 +29,6 @@ class MyCompanyDetail extends React.Component {
     // let userid = this.props.currentUser.user.id
     // let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/companies/${companyid}`
     let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/1/companies/${companyid}`
-    console.log(url)
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({
@@ -66,6 +66,7 @@ class MyCompanyDetail extends React.Component {
 
 
   render() {
+
     if (!this.props) {
       return<div>Loading...</div>
     }
@@ -119,6 +120,16 @@ class MyCompanyDetail extends React.Component {
       <CompanyArticleFeed company={this.state.company} addBookmark = {this.props.addBookmark} user = {this.props.user} company={this.state.company}/>
       </div>
     </div>
+
+
+
+    <div className="myCompanyIndustryNews" style={{clear:"both"}}>
+      <h2>Industry News</h2>
+      <div style={{float:"left", display:"inlineBlock"}}>
+      <IndustryNewsFeed company={this.state.company} addBookmark = {this.props.addBookmark} user = {this.props.user} company={this.state.company}/>
+      </div>
+    </div>
+
 
     <div className="myCompanyFindJobs" style={{clear:"both"}}>
       <h2>Explore Open Positions at {this.state.company.name}</h2>

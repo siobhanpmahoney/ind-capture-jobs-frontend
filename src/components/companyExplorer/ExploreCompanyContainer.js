@@ -102,7 +102,7 @@ class ExploreCompanyContainer extends React.Component{
 
      return (
        <div style={{margin:"1em"}}>
-       <h2>Search for a Company!</h2>
+       <h2 style={{margin:"1em"}}>Search for a Company!</h2>
        <div>
          <CompanyFilter industrySelectListener={this.industrySelectListener}
           handleCompanySearchSubmit={this.handleCompanySearchSubmit}

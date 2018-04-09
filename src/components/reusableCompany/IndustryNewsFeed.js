@@ -30,7 +30,7 @@ class IndustryNewsFeed extends React.Component {
             .then(json => json.articles.map((a) => {
               console.log(a)
                articlesForState.push(a)
-               return articlesForState.sort((a,b) => new Date(a.publishedAt) - new Date(b.publishedAt))
+               return articlesForState.sort((a,b) => new Date(b.publishedAt) - new Date(a.publishedAt))
             }))
       })
     }

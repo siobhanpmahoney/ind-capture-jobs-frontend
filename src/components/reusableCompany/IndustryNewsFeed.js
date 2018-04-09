@@ -19,7 +19,7 @@ class IndustryNewsFeed extends React.Component {
   }
 
   componentDidMount() {
-    debugger
+
     let articlesForState = []
     if (this.props.company.industries.length > 0) {
       this.props.company.industries.map((i) => {
@@ -35,11 +35,11 @@ class IndustryNewsFeed extends React.Component {
       })
     }
 
-
     console.log(articlesForState)
     this.setState({
       articles: articlesForState.sort((a,b) => b.publishedAt.localeCompare(a.publishedAt))
     })
+
   }
 
 
@@ -69,7 +69,7 @@ dynamicBookmarkIcon = (info) => {
 
     return (
       <div>
-        {this.state.articles.map((article) => {
+        {this.state.articles.slice(0,9).map((article) => {
           return <div style={{display: "inlineBlock", float:"left", verticalAlign: "top", background:"white", boxShadow:"rgba(0, 0, 0, 0.25) 0px 14px 14px, rgba(0, 0, 0, 0.22) 0px 10px 10px", margin: "1em", padding: "0.25em", height: "300px", width: "275px"}}>
 
             <div style={{margin:"-1em"}}>

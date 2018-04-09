@@ -68,7 +68,7 @@ export function editJob(userid, selectedJob) {
 
 export function deleteJob(userid, selectedJobId) {
   let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/jobs/${selectedJobId}`
-  debugger
+  
   console.log("in deleteJob action")
   console.log("in deleteJob action, url", url)
   return(dispatch) => {

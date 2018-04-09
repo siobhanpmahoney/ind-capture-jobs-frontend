@@ -236,8 +236,9 @@ class MyJobsItemDetail extends React.Component {
       else if (this.state.savedInfoDisplay==="company") {
         return(
           <div className="company">
-
+            <div style={{overflowX:"none", fontSize:"90%"}}>
           <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.state.company.id}/>
+          </div>
         </div>
       )}
     else {

@@ -86,14 +86,17 @@ class MyCompanyDetail extends React.Component {
 
     return (
   <div className="myCompanyDetail">
-      <h1>{this.state.company.name}</h1>
-      <img src={this.state.company.image_link} style={{width:"400px"}} />
-      <div>
-      <h3>{this.state.company.location}</h3>
-      <h3>{this.state.company.size}</h3>
-        <div style={{fontSize:"18px"}}>{this.state.company.description}</div>
-</div>
+<h1 style={{fontWeight:"800"}}>{this.state.company.name}</h1>
+<div style={{display:"flex", justifyContent:"flex-start", flexDirction:"column-reverse", width:"100%"}}>
 
+      <div style={{padding:"0.25em", flexFlow: "row wrap", display:"block", order:"1"}}>
+
+      <h2 style={{display:"flex"}}>{this.state.company.location}</h2>
+      <h3>{this.state.company.size}</h3>
+        <div style={{fontSize:"18px", fontWeight:"400"}}>{this.state.company.description}</div>
+</div>
+  <img src={this.state.company.image_link} style={{width:"480px", height:"100%", float:"left", display: "block", minWidth:"280px", overflowX:"hidden", margin:"0.25em", padding:"0.25em", flexDirection:"row", order:"2", flex:"flex-shrink"}} />
+</div>
 
 
 

@@ -78,6 +78,7 @@ dynamicBookmarkIcon = (info) => {
     if (!this.state.articles) {
       return<div>Loading..</div>
     }
+    console.log(this.state.articles)
 
 
     return (

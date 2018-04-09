@@ -6,6 +6,7 @@ import * as Actions from '../../actions'
 import MyJobsItem from '../myJobs/MyJobsItem'
 import CompanyArticleFeed from '../reusableCompany/CompanyArticleFeed'
 import CompanyPRFeed from '../reusableCompany/CompanyPRFeed'
+import IndustryNewsFeed from '../reusableCompany/IndustryNewsFeed'
 import JobSearchResultList from '../jobExplorer/JobSearchResultList'
 import JobSearchResultItem from '../jobExplorer/JobSearchResultList'
 
@@ -29,7 +30,7 @@ class CompanyDetail extends React.Component {
     // let userid = this.props.currentUser.user.id
     // let url = `https://capture-jobs-api.herokuapp.com/api/v1/users/${userid}/companies/${companyid}`
     let url = `https://api-v2.themuse.com/companies/${musecompanyid}`
-    
+
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({
@@ -72,6 +73,7 @@ class CompanyDetail extends React.Component {
     if (!this.state.company) {
       return <div>Loading...</div>
     }
+    console.log(this.state.company)
 
 
     return (
@@ -108,12 +110,23 @@ class CompanyDetail extends React.Component {
     </div>
   }
 
+  {this.state.company.industries &&
+
+      <div className="myCompanyIndustryNews" style={{clear:"both"}}>
+        <h2>Industry News</h2>
+        <IndustryNewsFeed company={this.state.company} addBookmark = {this.props.addBookmark} user = {this.props.user} />
+      </div>
+
+    }
+
 {this.state.company &&
     <div className="myCompanyFindJobs" style={{clear:"both"}}>
       <h2>Explore Open Positions at {this.state.company.name}</h2>
       <JobSearchResultList jobSearchResults = {this.state.openJobs} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.saveNewJob} />
     </div>
   }
+
+
 
   </div>
 

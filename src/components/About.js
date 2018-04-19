@@ -6,6 +6,7 @@ import * as Actions from '../actions'
 import jobSearch from './imgs/jobSearch.svg'
 import track from './imgs/track.jpg'
 import research from './imgs/research.svg'
+import takingNotes from './imgs/takingNotes.svg'
 
 class About extends React.Component {
   render() {
@@ -51,13 +52,25 @@ class About extends React.Component {
             <span className="imgRights"><div>Icons made by <a href="https://www.flaticon.com/authors/popcorns-arts" title="Icon Pond">Icon Pond</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></span>
           </div>
           <div className="about-description">
-            <span className="about-title">Organize Company Research</span>
+            <span className="about-title">Read Up on Companies</span>
             <p></p>
           </div>
         </section>
-        <div className="row two"></div>
-        <div className="row three"></div>
-        <div className="row four"></div>
+
+        <section className="row five">
+          <div className="image">
+            <img src={takingNotes} className="imgSrc" /><br />
+            <span className="imgRights">
+              <div>Icons made by <a href="https://www.flaticon.com/authors/puppets" title="Puppets">Puppets</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+            </span>
+          </div>
+          <div className="about-description">
+            <span className="about-title">Organize notes and research</span>
+            <p></p>
+          </div>
+        </section>
+
+
       </div>
     )
   }

@@ -30,6 +30,7 @@ class NavBar extends React.Component {
         <span style={{backgroundColor:"backgroundColor: #ffffffbd", padding:"1em", margin:"1em"}}>
 
           <span style={{float:"right", style:"inline"}}>
+        <NavLink to="/about" exact style={link} activeStyle={{textDecoration:"underline"}}>About</NavLink>
         <NavLink to="/" exact style={link} activeStyle={{textDecoration:"underline"}}>Profile</NavLink>
 
       <NavLink to="/search/jobs" exact style={link} activeStyle={{textDecoration:"underline"}}>Search Jobs</NavLink>
@@ -49,6 +50,7 @@ class NavBar extends React.Component {
       } else {
         return (
           <span style={{float:"right", style:"inline", margin:"1em"}}>
+          <NavLink to="/about" exact style={link} activeStyle={{textDecoration:"underline"}}>About</NavLink>
           <NavLink
             to="/login"
             exact
@@ -67,6 +69,7 @@ class NavBar extends React.Component {
         <span className="captureLogo" style={{fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em 1em"}}
           >
           Capture</span>
+
         {this.renderHTML()}
       </div>)
     }

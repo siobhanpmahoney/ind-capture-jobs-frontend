@@ -10,6 +10,7 @@ import Login from './components/Login'
 import Logout from './components/Login'
 import NavBar from './components/NavBar'
 import Profile from './components/Profile'
+import About from './components/About'
 
 import ExploreCompanyContainer from './components/companyExplorer/ExploreCompanyContainer'
 import CompanyDetail from './components/companyExplorer/CompanyDetail'
@@ -166,6 +167,8 @@ class App extends Component {
           <Route exact path="/login" render={() => <Login setLoggedInUser={this.setLoggedInUser} /> } />
 
           <Route exact path="/logout" render={() => <Logout /> } />
+
+        <Route exact path="/about" render={() => <About /> } />
 
           <Route exact path="/" render={() => <Profile user={this.props.currentUser} savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} addToSavedJobs={this.addToSavedJobs} /> } />
 

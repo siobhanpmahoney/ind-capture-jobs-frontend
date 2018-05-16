@@ -3,7 +3,8 @@ import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../actions'
-import { withRouter, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
+import { Redirect } from 'react-router-dom'
 
 import JobSuggestionContainer from './jobExplorer/JobSuggestionContainer'
 import CompanySuggestionContainer from './companyExplorer/CompanySuggestionContainer'
@@ -13,10 +14,10 @@ import MyJobsResourceFeedInterviews from './myJobs/MyJobsResourceFeedInterviews'
 class Profile extends React.Component {
 
   componentDidMount() {
-  if (!this.props.auth.loggingIn) {
-     <Redirect to = '/about' />
+  if (this.props.currentUser === null && !this.props.auth.loggingIn) {
+      <Redirect to = '/login' />
   } else {
-    console.log(this.props)
+    console.log(this.props.auth.loggingIn)
   }
 }
 

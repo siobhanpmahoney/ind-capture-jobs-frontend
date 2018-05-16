@@ -161,8 +161,8 @@ class MyJobsItemDetail extends React.Component {
 
   addTestNewNote = (event) => {
     event.preventDefault()
-    console.log(this.state.displayNote, this.props.currentUser.id, this.props.company.id, this.props.job.id)
-    this.props.addNewNote(this.state.displayNote, this.props.currentUser.user.id, this.props.company.id, this.props.job.id)
+    console.log(this.state.displayNote, this.props.currentUser.id, this.props.job.company_id, this.props.job.id)
+    this.props.addNewNote(this.state.displayNote, this.props.currentUser.user.id, this.props.job.company_id, this.props.job.id)
   }
 
 
@@ -192,7 +192,7 @@ class MyJobsItemDetail extends React.Component {
   noteEditSubmit = (event) => {
     event.preventDefault()
     // window.location = `/myjobs/${this.props.jobId}`
-    this.props.editNote(this.state.displayNote, this.props.currentUser.user.id, this.props.job.id, this.props.company.id)
+    this.props.editNote(this.state.displayNote, this.props.currentUser.user.id, this.props.job.id, this.props.job.company_id)
   }
 
   relevantNotes = () => {
@@ -237,7 +237,7 @@ class MyJobsItemDetail extends React.Component {
         return(
           <div className="company">
             <div style={{overflowX:"none", fontSize:"90%"}}>
-          <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.props.company.id}/>
+          <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.props.job.company_id}/>
           </div>
         </div>
       )}
@@ -270,12 +270,13 @@ class MyJobsItemDetail extends React.Component {
       }
 
 
-
+debugger
       return (
+
         <div className="myJobDetail">
           <div className="header">
           <h2 className="myJobTitle">{this.props.job.title}</h2>
-          <h3 className="myJobDetailCompanyName">{this.props.company.name}</h3>
+          <h3 className="myJobDetailCompanyName">{this.props.job.company_name}</h3>
           </div>
 
           <div className="myJobDetailDashboard">

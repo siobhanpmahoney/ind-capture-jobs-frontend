@@ -158,19 +158,30 @@ class App extends Component {
     //   return <div>Loading</div>;
     // }
 
+if (!this.state.auth.loggingIn) {
+  return (
+    <Router>
+      <div className = "App">
+        <NavBar loggedIn = {this.state.auth.currentUser} logOutUser = {this.logOutUser} />
+        <Route exact path="/login" render={() => <Login setLoggedInUser={this.setLoggedInUser} /> } />
+          <Route exact path="/about" render={() => <About /> } />
 
+      </div>
+    </Router>
+  )
+}
+
+if (!!this.state.auth.loggingIn) {
     return (
       <Router>
         <div className="App">
           <NavBar loggedIn = {this.state.auth.currentUser} logOutUser = {this.logOutUser} />
 
-          <Route exact path="/login" render={() => <Login setLoggedInUser={this.setLoggedInUser} /> } />
-
           <Route exact path="/logout" render={() => <Logout /> } />
 
         <Route exact path="/about" render={() => <About /> } />
 
-          <Route exact path="/" render={() => <Profile loggedIn = {this.state.auth.currentUser} auth = {this.state.auth} user={this.props.currentUser} savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} addToSavedJobs={this.addToSavedJobs} /> } />
+          <Route exact path="/" render={() => <Profile auth = {this.state.auth} savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} addToSavedJobs={this.addToSavedJobs} /> } />
 
     <Route exact path="/search/companies" render={() => <ExploreCompanyContainer /> } />
 
@@ -194,7 +205,7 @@ class App extends Component {
       </Router>
     );
   }
-
+}
 }
 
 

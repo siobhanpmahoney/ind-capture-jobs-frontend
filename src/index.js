@@ -13,25 +13,30 @@ import * as Actions from './actions'
 import { loadState, saveState } from './localStorage'
 
 
+//former code
 
-const persistedState = loadState();
-
-// function configureStore(){
-//   return createStore(
-//     rootReducer,
-//     persistedState,
-//     composeWithDevTools(applyMiddleware(thunk))}
+// const persistedState = loadState();
 //
-// const store = configureStore()
+// const store = createStore(reducers, persistedState,
+//   applyMiddleware(thunk)
+// );
+//
+// store.subscribe(throttle(() => {
+//   saveState(store.getState())
+// }, 1000));
 
-const store = createStore(reducers, persistedState,
+
+
+//trying simplified version
+
+const store = createStore(reducers,
   applyMiddleware(thunk)
 );
 
+store.subscribe(() => {
+  store.getState()
+});
 
-store.subscribe(throttle(() => {
-  saveState(store.getState())
-}, 1000));
 
 // Connect our store to the reducers
 

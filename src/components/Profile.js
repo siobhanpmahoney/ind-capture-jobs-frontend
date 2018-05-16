@@ -3,7 +3,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../actions'
-import { withRouter } from 'react-router';
+import { withRouter, Redirect } from 'react-router';
 
 import JobSuggestionContainer from './jobExplorer/JobSuggestionContainer'
 import CompanySuggestionContainer from './companyExplorer/CompanySuggestionContainer'
@@ -11,6 +11,14 @@ import MyJobsResourceFeedInterviews from './myJobs/MyJobsResourceFeedInterviews'
 
 
 class Profile extends React.Component {
+
+  componentDidMount() {
+  if (!this.props.auth.loggingIn) {
+     <Redirect to = '/about' />
+  } else {
+    console.log(this.props)
+  }
+}
 
   industryUrl = () => {
     let iUrl = this.props.savedIndustries.map((i) => {
@@ -28,21 +36,29 @@ class Profile extends React.Component {
   }
 
   render() {
-    if (!this.props.currentUser) {
-      return(<div>Loading...</div>)
-    }
-    if (!this.props.currentUser.user){
-      return(<div>Loading...</div>)
-    }
-    if (!this.props.currentUser.user.username){
-      return(<div>Loading...</div>)
+    // if (!this.props.currentUser) {
+    //   return(<div>Loading...</div>)
+    // }
+    // if (!this.props.currentUser.user){
+    //   return(<div>Loading...</div>)
+    // }
+    // if (!this.props.currentUser.user.username){
+    //   return(<div>Loading...</div>)
+    // }
+
+    // console.log(this.props.currentUser)
+    // console.log(this.props.currentUser.user.username)
+    console.log(this.props)
+    if (this.props.auth.loggingIn && this.props.currentUser === null) {
+      return <div>Loading...</div>
     }
 
-    console.log(this.props.currentUser)
-    console.log(this.props.currentUser.user.username)
-    return (
+
+
+
+        return (
       <div className = "profile">
-        <div className="welcome">Welcome Back, {this.props.currentUser.user.username}!</div>
+            <div className="welcome">Welcome!</div>
 
 
         <div className="jobSuggestions" style={{ margin:"0.25em -1em"}}>
@@ -61,6 +77,8 @@ class Profile extends React.Component {
 
       </div>
     )
+
+
   }
 }
 

@@ -1,5 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as Actions from '../actions'
+import { withRouter, Redirect } from 'react-router';
 
 class Login extends React.Component {
   static propTypes = {
@@ -45,8 +49,8 @@ class Login extends React.Component {
         alert(res.error)
       }
       else {
-        window.location = `/`
         this.props.setLoggedInUser(res)
+        window.location = `/`
       }
     })
   }
@@ -103,4 +107,20 @@ class Login extends React.Component {
 
 
 
-export default Login;
+function mapStateToProps(state, props) {
+  return {
+    currentUser: state.user.currentUser,
+    savedJobs: state.user.savedJobs,
+    savedCompanies: state.user.savedCompanies,
+    savedNotes: state.user.savedNotes,
+    savedBookmarks: state.user.savedBookmarks,
+    savedCategories: state.user.savedCategories,
+    savedIndustries: state.user.savedIndustries
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

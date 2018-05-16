@@ -31,7 +31,7 @@ class App extends Component {
     this.state = {
       auth: {
         currentUser: null,
-        loggingIn: true
+        loggingIn: false
       },
       savedJobs: [],
       savedCompanies: [],
@@ -47,7 +47,7 @@ class App extends Component {
            username: user.username,
            id: user.id
          },
-         loggingIn: false
+         loggingIn: true
        }
      })
      this.props.loadCurrentUser(this.state.auth.currentUser)
@@ -78,9 +78,9 @@ class App extends Component {
           if(user) {
             this.setState({
               auth: {
-                currentUser: user
+                currentUser: user,
+                loggingIn: true
               },
-              loggingIn: false
             }); this.props.loadCurrentUser(this.state.auth.currentUser)
           }
 
@@ -170,7 +170,7 @@ class App extends Component {
 
         <Route exact path="/about" render={() => <About /> } />
 
-          <Route exact path="/" render={() => <Profile user={this.props.currentUser} savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} addToSavedJobs={this.addToSavedJobs} /> } />
+          <Route exact path="/" render={() => <Profile loggedIn = {this.state.auth.currentUser} auth = {this.state.auth} user={this.props.currentUser} savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} addToSavedJobs={this.addToSavedJobs} /> } />
 
     <Route exact path="/search/companies" render={() => <ExploreCompanyContainer /> } />
 

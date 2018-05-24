@@ -1,8 +1,6 @@
 import React from 'react';
-import {Editor, EditorState, RichUtils} from 'draft-js';
 
 import { withRouter } from 'react-router'
-import 'draft-js/dist/Draft.css';
 
 
 const styles = {

@@ -1,11 +1,14 @@
 import React from 'react'
 
-const JobFilter = ({categorySelectListener, levelSelectListener, locationSelectListener, handleJobSearchSubmit}) => {
+const JobFilter = ({textSearchListener, categorySelectListener, levelSelectListener, locationSelectListener, handleJobSearchSubmit}) => {
   const categoryOptions = [
     "Account Management", "Business & Strategy", "Creative & Design", "Customer Service", "Data Science", "Editorial", "Education", "Engineering", "Finance", "Fundraising & Development", "Healthcare & Medicine", "HR & Recruiting", "Legal", "Marketing & PR", "Operations", "Project & Product Management", "Retail", "Sales", "Social Media & Community"]
 
   return (
     <div className="jobFilters">
+      <div>
+        <input type="text" onChange={textSearchListener} />
+      </div>
       <div className="jobFilterCategory" style={{backgroundColor:"white", padding:"0.5em", margin:"0.5em", boxShadow: "0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22)", height:"410px", fontSize:"14px", style:"inlineBlock", float:"left", gridAutoFlow:"column"}}>
 
         <h3>Select Job Category</h3>

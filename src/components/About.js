@@ -26,7 +26,7 @@ class About extends React.Component {
         <section className="row two">
 
           <div className="image">
-            <i className="material-icons" style={{color:"#FF5370", fontSize:"8em"}}>bookmark</i>
+            <i className="material-icons">bookmark</i>
           </div>
           <div className="about-description">
             <span className="about-title">Save Job Listings</span>

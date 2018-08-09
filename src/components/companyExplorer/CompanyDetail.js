@@ -97,14 +97,14 @@ class CompanyDetail extends React.Component {
 
 
 {this.state.company &&
-    <div className="myCompanyPressReleases" style={{clear:"both"}}>
+    <div className="myCompanyPressReleases">
       <h2>Press Releases mentioning {this.state.company.name}</h2>
       <CompanyPRFeed addBookmark = {this.props.addBookmark} user = {this.props.user} company={this.state.company}/>
     </div>
   }
 
 {this.state.company &&
-    <div className="myCompanyNews" style={{clear:"both"}}>
+    <div className="myCompanyNews">
       <h2>{this.state.company.name} in the News</h2>
       <CompanyArticleFeed company={this.state.company} addBookmark = {this.props.addBookmark} user = {this.props.user} company={this.state.company}/>
     </div>
@@ -112,7 +112,7 @@ class CompanyDetail extends React.Component {
 
   {this.state.company.industries &&
 
-      <div className="myCompanyIndustryNews" style={{clear:"both"}}>
+      <div className="myCompanyIndustryNews">
         <h2>Industry News</h2>
         <IndustryNewsFeed company={this.state.company} addBookmark = {this.props.addBookmark} user = {this.props.user} />
       </div>
@@ -120,7 +120,7 @@ class CompanyDetail extends React.Component {
     }
 
 {this.state.company &&
-    <div className="myCompanyFindJobs" style={{clear:"both"}}>
+    <div className="myCompanyFindJobs">
       <h2>Explore Open Positions at {this.state.company.name}</h2>
       <JobSearchResultList jobSearchResults = {this.state.openJobs} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.saveNewJob} />
     </div>

@@ -62,14 +62,14 @@ class Profile extends React.Component {
             <div className="welcome">Welcome!</div>
 
 
-        <div className="jobSuggestions" style={{ margin:"0.25em -1em"}}>
-          <div className="insideJobSuggestions" style={{margin:"0.25em 1em", padding:"0.25em"}}>
+        <div className="jobSuggestions">
+          <div className="insideJobSuggestions">
 
           <JobSuggestionContainer currentUser={this.props.currentUser} savedJobs={this.props.savedJobs} savedCategories={this.props.savedCategories} savedIndustries={this.props.savedIndustries} addToSavedJobs={this.props.addToSavedJobs}  categoryUrl={this.categoryUrl()}/>
           </div>
         </div>
 
-        <div className="companySuggestionContainer" style={{margin:"0.25 -1em", padding: "0.25em", clear:"both"}}>
+        <div className="companySuggestionContainer">
 
           <CompanySuggestionContainer industryUrl={this.industryUrl()} />
         </div>

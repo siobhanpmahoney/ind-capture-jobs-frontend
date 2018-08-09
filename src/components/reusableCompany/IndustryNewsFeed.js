@@ -84,28 +84,28 @@ dynamicBookmarkIcon = (info) => {
     return (
       <div>
         {this.state.articles.slice(0,9).map((article) => {
-          return <div style={{display: "inlineBlock", float:"left", verticalAlign: "top", background:"white", boxShadow:"rgba(0, 0, 0, 0.25) 0px 14px 14px, rgba(0, 0, 0, 0.22) 0px 10px 10px", margin: "1em", padding: "0.25em", height: "300px", width: "275px"}}>
+          return <div>
 
-            <div style={{margin:"-1em"}}>
-            <div style={{margin:"0.75em", padding:"0.5em", fontSize:"12.5px", fontWeight:"bold", display:"block", backgroundColor:"#07d2e4", color:"white"}}>{article.source.name}</div>
+            <div>
+            <div>{article.source.name}</div>
             </div>
 
 <div>
-            <div><img src={article.urlToImage} style={{width:"282px", maxHeight:"170px", display:"block", verticalAlign: "top", marginLeft:"-0.45em", marginRight:"-0.35em", marginTop:"0.25em", padding:"0.25em"}} /></div>
+            <div><img src={article.urlToImage} /></div>
 
-            <div style={{backgroundColor:"white", padding:"0.25em", marginTop:"0.25em"}}>
-            <span style={{display:"inlineBlock", verticalAlign:"top", alignment:"right", margin:"0.1em", color:"#FF5370"}}>
+            <div>
+            <span>
 
           {this.dynamicBookmarkIcon(article)}
 
 
           </span>
 
-          <div className="companyPressCardTitle" style={{margin:"0.25em", padding:"0.25em", display:"inlineBlock", verticalAlign:"bottom", textIndent:"0em", fontSize:"13px", fontFamily:"Calibri"}}>
+          <div className="companyPressCardTitle">
             <a href={article.url} target="_blank">{article.title}</a>
           </div>
 
-          <div className="companyPressCardTitle" style={{fontSize:"12.5px", fontFamily:"Calibri", margin:"0.25em", padding:"0.25em", fontStyle:"italic" }}>Published {new Date(article.publishedAt).toLocaleDateString()}</div>
+          <div className="companyPressCardTitle">Published {new Date(article.publishedAt).toLocaleDateString()}</div>
 </div>
           </div>
         </div>

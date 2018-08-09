@@ -102,19 +102,21 @@ class JobExploreContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.jobSearchResults)
-    const jobSearchResults = this.state.jobSearchResults.filter((res) => res.name.toLowerCase().includes(this.state.textSearch.toLowerCase()) || res.contents.toLowerCase().includes(this.state.textSearch.toLowerCase()))
-    return (<div className="jobSearchContainer" style={{backgroundColor:"background-color: #F9FBFB", margin:"1em"}}>
-    <h2>Search for a Job!</h2>
+    const jobSearchResults = this.state.jobSearchResults.filter((res) => {
+      res.name.toLowerCase().includes(this.state.textSearch.toLowerCase()) || res.contents.toLowerCase().includes(this.state.textSearch.toLowerCase())
+    })
+    return (
+      <div className="jobSearchContainer">
+        <h2>Search for a Job!</h2>
 
-    <JobFilter textSearchListener={this.textSearchListener} categorySelectListener={this.categorySelectListener} levelSelectListener = {this.levelSelectListener} locationSelectListener={this.locationSelectListener} handleJobSearchSubmit={this.handleJobSearchSubmit} />
+        <JobFilter textSearchListener={this.textSearchListener} categorySelectListener={this.categorySelectListener} levelSelectListener = {this.levelSelectListener} locationSelectListener={this.locationSelectListener} handleJobSearchSubmit={this.handleJobSearchSubmit} />
 
-    <div className="searchContainerResults" style={{backgroundColor:"#F9FBFB"}}>
-
-      <JobSearchResultList jobSearchResults = {jobSearchResults} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} />
-    </div>
-  </div>
-)}
+        <div className="searchContainerResults">
+          <JobSearchResultList jobSearchResults = {jobSearchResults} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} />
+        </div>
+      </div>
+    )
+  }
 
 }
 

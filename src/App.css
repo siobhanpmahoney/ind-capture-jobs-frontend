@@ -1,415 +1,60 @@
- /* color:
- 1. bright, light blue: #00a7ff
- 2. for links: #00a4bd
- 3. press releases: #00b7c4
- 4. company news: #00a4bd
- 5. industry news: #00bda5
- 6. coral: #ff5a5f
+
+html {
+  background-size: cover;
+}
 
 
- end */
 
+html, body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0px;
+}
 
 .App {
-  font-family: "Avenir";
-  margin: 0em;
-  color: #3C475C;
+  position: relative;
+  width: 100%;
+  font-size:100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .navbar {
-  /* background-color:#ffffffbd; */
-  padding:1.5em;
-  color: white;
-  background: linear-gradient(#4080ff, #00a7ff)
-}
-
-.captureLogo {
-  /* color:"#5EC4FF",  */
-}
-
-a:link {
-  color: #00a7ff;
-}
-
-a:visited {
-  visited: #137D90;
-}
-
-.profile {
-  margin: 1em;
-}
-
-body {
-  margin: 0em;
-  padding: 0em;
-  /* background: linear-gradient(to bottom right, #e0eafc, #cfdef3); */
-  /* background-image: linear-gradient(to top right, #dfe9f3 0%, white 100%); */
-  /* background-image: linear-gradient(225deg, #FFFEFF 0%, #D7FFFE 100%); */
-  /* background-color: #CDDCDC;
- background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
- background-blend-mode: screen, overlay; */
- /* background-image: linear-gradient(225deg, #fd746c 0%, #ff9068 100%); */
- /* background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); */
- /* background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); */
- background: #FAFBFC;
-}
-
-.filters select {
-  border: 1px solid #00A8CA;
-  color: #00A8CA;
-  font-family: "Avenir";
-  font-size: 13px;
-  padding: 10px 10px;
-  border-radius: 3px;
-}
-
-input[type=submit] {
-    border: 1px solid #718CA1;
-    color: #718CA1;
-    font-family: "Avenir";
-    font-size: 14px;
-    padding: 6px 6px;
-    border-radius: 3px;
-}
-
-
-
-.myJobDetailDashboard input[type=text] {
-  border-bottom: 1px solid #7590AC;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  color: #7590AC;
-  font-family: "Avenir";
-  font-size: 14px;
-  padding: 6px 6px;
-}
-
-.login {
-  margin: 1em;
-  padding: 1em
-}
-
-.login input[type=text], input[type=password] {
-  border-style: none;
-  color: #00A8CA;
-  font-family: "Avenir";
-  font-size: 14px;
-  padding: 12px 12px;
-  margin: 1em;
-  border-radius: 4px;
-
-}
-
-.appliedStatus input[type=checkbox] {
-  border: 1px solid #00A8CA;
-  color: #00A8CA;
-  font-family: "Avenir";
-  font-size: 14px;
-  padding: 6px 6px;
-  border-radius: 3px;
-}
-
-.myJobDetailDashboard input[type=checkbox] {
-  border-style: none;
-  color: #7590ac;
-  font-family: "Avenir";
-  font-size: 14px;
-  padding: 6px 6px;
-  border-radius: 3px;
-}
-
-.myJobDetailDashboard select {
-  border: 1px solid #7590ac;
-  color: #7590ac;
-  font-family: "Avenir";
-  font-size: 13px;
-  padding: 10px 10px;
-  border-radius: 3px;
-}
-
-.myJobDetailDashboard {
-  color: #718CA1;
-}
-
-.myJobDetailDashboard button{
-  border: none;
-  background-color: #FF5370;
-  font-family: "Avenir";
-  color: white;
-  font-size: 13px;
-  margin: 12px 6px;
-  padding: 6px 6px;
-  border-radius: 6px;
-}
-
-.buttons button {
-  border: none;
-  background-color: #718CA1;
-  font-family: "Avenir";
-  color: white;
-  font-size: 14px;
-  width: 100px;
-  margin: 12px 6px;
-  padding: 6px 6px;
-  border-radius: 6px;
-}
-
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 10px;
-  color: white;
-}
-
-
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.profile {
-  /* display: grid;
-	grid-gap: 16px;
-	grid-template-columns: repeat(2, 1fr) minmax(50px, 1fr);
-	grid-template-rows: repeat(10, min-content); */
-  margin: 1em;
-  padding: 1em;
-}
-
-.jobFilters {
-  display: grid;
-	grid-gap: 16px;
-	grid-template-columns: repeat(2, 1fr) minmax(50px, 1fr);
-	grid-template-rows: repeat(10, min-content);
-  grid-auto-flow: dense;
-  margin: 1em;
-  padding: 1em;
-}
-
-.myCompanyDetail {
-  /* display: grid;
-	grid-gap: 16px;
-	grid-template-columns: repeat(2, 1fr) minmax(50px, 1fr);
-	grid-template-rows: repeat(10, min-content);
-  grid-auto-flow: dense; */
-  margin: 0.5em 1.5em;
-  padding: 0.5em 1.5em;
-
-}
-
-
-.companyFilters {
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: repeat(2, 1fr) minmax(50px, 1fr);
-  grid-template-rows: repeat(10, min-content);
-  grid-auto-flow: dense;
-  font-size: 14px;
-}
-
-.jobFilterCategory .locationList {
-  grid-column: 1 / span 1;
-  box-shadow: 0 14px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  grid-auto-flow: dense;
-  float: left;
-
-}
-
-
-
-
-.jobFilterLevel .industryFilter {
-  grid-column: 2 / span 2;
-  box-shadow: 0 14px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.jobFilterLocation .sizeFilter {
-  grid-column: 3 / span 1;
-  box-shadow: 0 14px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.searchContainerResults {
-  grid-column: 1 / span 3;
-  grid-auto-flow: dense;
-
-}
-
-.companySearchResults {
-  grid-column: 1 / span 3;
-  grid-auto-flow: dense;
-}
-
-
-
-.jobSuggestions {
-  float: left;
-  /* box-sizing: border-box;
+  padding: 16px 16px 32px 16px;
+  transition: top 0.3s ease-in;
   width: 100%;
-  border: solid #5B6DCD 2px;
-  padding: 5px; */
+  display: flex;
+  background-color: #24344B;
+  position: absolute;
+  justify-content: space-between;
+  flex: 1 1 auto;
 
 }
 
-/* .companySuggestionContainer, .jobSuggestions {
-  background-color: #ffffffbd;
-} */
-
-.welcome {
-  grid-column: 1 / 3;
-  font-family: "Avenir Next";
-  font-size: 2.25em;
+.capture-logo {
+  color: white;
+  font-family: "Avenir";
+  font-size: 48px;
   font-weight: 700;
-  color: #333F4A;
-  padding: 0.5em;
+  display: inline-flex;
+  justify-content: flex-start;
 }
 
-.insideJobSuggestions h1 {
-  font-weight: 600;
+.navbar-link-container {
+  display: inline-flex;
+  align-self: flex-end;
 }
 
-.companySearchResults {
-  flex: auto;
-  align-self: center;
-  align-content: center;
-  margin-left: 1em;
-  background-color: #c0c2ce;
+.navbar-link {
+  color: #E4F6F6;
+  font-size: 60%;
+  padding: 12px 16px;
+  margin: 12px;
 }
 
-.companySearchResultCard {
-  padding: 0.25em;
-  margin: 0.75em;
-  height: 380px;
-  width: 350px;
-  display: block;
-  border: groove #53b6d0 2px;
-  float: left;
-  background-color: "white";
-}
-
-
-.location, .industryList {
-  font-size: 14px;
-  vertical-align: bottom;
-
-}
-
-.jobSearchContainer {
-
-}
-
-.jobSearchResultItem {
-  padding: 0.25em;
-  margin: 1em;
-  height: 180px;
-  width: 325px;
-  font: "Roboto";
-  /* border: groove 1px; */
-  display: inline-block;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
-  float: left;
-  border-radius: 6px;
-}
-
-.jobDescription {
-  padding: 0.25em;
-  margin: 1em;
-}
-
-.mySavedJobList {
-  margin: 1em;
-  padding: 1em;
-}
-
-
-
-.mySavedJob {
-  padding: 0.25em;
-  margin: 0.5em;
-  height: 160px;
-  width: 240px;
-  font: "Calibri";
-  /* border: groove 1px; */
-  float: left;
-  style: inline-block;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
-  float: left;
-}
-
-.mySavedJob div.dateSaved {
-  font-style: italic;
-}
-
-
-.myJobDetail {
-  display: grid;
-	grid-gap: 16px;
-  margin: 1em;
-  padding: 1em;
-	grid-template-columns: repeat(3, 1fr) minmax(50px, 1fr);
-	/* grid-template-rows: repeat(10, min-content); */
-}
-
-.header {
-  grid-column: 1 / span 3;
-}
-
-/* .myJobResource {
-  grid-column: -1 / span -1;
-  border-left: 1px groove #37718e;
-  margin: 1em;
-  border: 1em;
-
-} */
-
-.myJobDetailDashboard {
-  grid-column: 1 / span 4;
-  /* clear: both; */
-  padding:  1em 4em;
-  background: white;
-  margin-left: -4em;
-  margin-right: -4em;
-}
-
-
-
-
-
-.myJobInfoAndNotes {
-  /* grid-column: 1 / span 2; */
-  /* grid-row: 3 / span -1 */
-  /* clear: both; */
-  /* display: grid; */
-  /* padding: 1em;
-  grid-gap: 15px;
-  width: 100%; */
-  /* grid-template-columns: 36% 60%; */
-  /* grid-template-areas: */
-  /* "header  header  header"
-    "sidebar content content"
-    "footer  footer  footer"; */
-}
-
-.myJobDetailSavedInfo {
-  grid-column: 1 / span 2;
-  background-color:  #F9FBFB;
-  height: 600px;
-  overflow-y: scroll;
-}
-
-/* .myJobDetailDescrip {
-  grid-column: 1 / span 2;
-} */
 
 .bookmarks {
   border-bottom: #3A4A4D 1px inset;
@@ -417,155 +62,6 @@ input[type=submit] {
 
 }
 
-div.notes {
-  grid-column: 1 / span 2;
-}
-
-
-div.noteTitleList {
-  border-bottom: 1px inset #F9FBFB;
-
-  /* margin: 0.3em; */
-  padding: 0.9em;
-  font-size: 1em;
-}
-
-.noteTitleList:hover {
-  background-color: #fff294;
-}
-
-button.openButton {
-  border: none;
-  background: none;
-}
-
-/* .newNoteForm .archiveNote {
-  grid-column: 2 / span 2;
-  grid-row: 3 / span 6
-} */
-
-
-.myJobDetailNote {
-  /* grid-column: 2 / span 2; */
-  /* grid-row: 6 / span 10; */
-
-  grid-column: 3 / span 4;
-  grid-gap: 10px;
-  padding: 0.25em;
-  height: 100%;
-  width: 100%;
-  align-self: center;
-  position: sticky;
-}
-
-.myJobDetailSavedNote {
-  grid-column: 1 / span 2;
-}
-
-
-h3.myJobDetailCompanyName {
-  font-size: 130%;
-}
-
-.myJobDetailNote form {
-  align-self: center;
-  width: inherit;
-
-}
-
-
-
-textarea {
-  align:center;
-  grid-column: 1 / 2;
-  width: 98%;
-  font-family: "Lato";
-  align:center;
-}
-
-textarea.noteContent {
-  min-height: 600px;
-  flex-direction: row;
-  font-size: 14px;
-  font-weight: 400;
-  margin: 0.2em;
-
-}
-
-textarea.noteTitle {
-  margin: 0.2em;
-  resize: none;
-  height: 30px;
-  vertical-align: middle;
-  flex-direction: row;
-  font-weight: 600;
-  font-size: 20px;
-}
-
-
-
-img.icon {
-  width: 160px;
-  float: right;
-  display: inline;
-  padding: 0 0.25em 0.25em 0.25em;
-  margin: 0.5em;
-}
-
-.about {
-  height: 100%;
-  width: 100%;
-  padding: 1em;
-  margin: 1em;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1em;
-  position: relative;
-}
-
-.imageOpp {
-  justify-content: flex-start;
-}
-
-.image {
-  justify-content: flex-start;
-}
-
-.image, .imageOpp {
-  flex: auto;
-  width: 10%;
-}
-
-img.imgSrc {
-  /* max-width: 550px;
-  min-width: 450px; */
-  margin: 1em;
-  width: 90%;
-  /* flex: auto; */
-  /* flex-shrink: 1; */
-}
-
-.imgRights {
-  font-size: 20%;
-  font-family: "Source Sans Pro";
-  color: grey;
-}
-
-.imgRights a:visited {
-  color: #cfdae6;
-}
-
-.imgRights a:link {
-  color: #cfdae6;
-}
-
-.imgRights {
-  color: #cfdae6;
-}
 
 .about-titleOpp {
   justify-content: flex-start;
@@ -600,9 +96,7 @@ img.imgSrc {
 }
 
 .about-description, .about-descriptionOpp {
-  /* flex-grow: 2;
-  flex-shrink: 1; */
-  /* min-width: 550px; */
+
   width: 78%;
   margin: 1em 1.5em;
   padding: 1em 1.5em;

@@ -5,59 +5,56 @@ import * as Actions from '../actions'
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-const link = {
-  width: '100px',
-  paddingTop: '1em',
-  paddingBottom: '1em',
-  paddingLeft: '0.75em',
-  paddingRight: '0.75em',
-  marginTop: '1em',
-  marginBottom: '1em',
-  marginLeft: '0.75em',
-  marginRight: '0.75em',
-  color: '#F7F9FA',
-  fontSize: '13px',
-  alignText: "right",
-  textDecoration: "none",
-  borderRadius: "6px"
-}
+
 
 class NavBar extends React.Component {
 
   renderHTML = () => {
     if (!!this.props.currentUser) {
       return (
-        <span style={{backgroundColor:"backgroundColor: #ffffffbd", padding:"1em", margin:"1em"}}>
+        <span className="navbar-links">
+        <NavLink to="/about" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+          About
+        </NavLink>
 
-          <span style={{float:"right", style:"inline"}}>
-        <NavLink to="/about" exact style={link} activeStyle={{textDecoration:"underline"}}>About</NavLink>
-        <NavLink to="/" exact style={link} activeStyle={{textDecoration:"underline"}}>Profile</NavLink>
+        <NavLink to="/" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+          Profile
+        </NavLink>
 
-      <NavLink to="/search/jobs" exact style={link} activeStyle={{textDecoration:"underline"}}>Search Jobs</NavLink>
+      <NavLink to="/search/jobs" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+        Search Jobs
+      </NavLink>
 
-        <NavLink to="/search/companies" exact style={link} activeStyle={{textDecoration:"underline"}}>Explore Companies</NavLink>
+        <NavLink to="/search/companies" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+          Explore Companies
+        </NavLink>
 
-        <NavLink to="/myjobs" exact style={link} activeStyle={{textDecoration:"underline"}}>My Jobs</NavLink>
+        <NavLink to="/myjobs" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+          My Jobs
+        </NavLink>
 
-      <NavLink to="/mycompanies" exact style={link} activeStyle={{textDecoration:"underline"}}>My Companies</NavLink>
+      <NavLink to="/mycompanies" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+        My Companies
+      </NavLink>
 
 
-    <NavLink onClick={this.props.logOutUser} to="/logout" exact style={link} activeStyle={{textDecoration:"underline"}}> Log Out </NavLink>
-    </span>
+    <NavLink onClick={this.props.logOutUser} to="/logout" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+      Log Out
+    </NavLink>
   </span>
   )
 
       } else {
         return (
-          <span style={{float:"right", style:"inline", margin:"1em"}}>
-          <NavLink to="/about" exact style={link} activeStyle={{textDecoration:"underline"}}>About</NavLink>
-          <NavLink
-            to="/login"
-            exact
-            style={link}
-            activeStyle={{
-              textDecoration:"underline"
-            }}>Log In</NavLink>
+          <span className="navbar-links">
+
+            <NavLink to="/about" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+              About
+            </NavLink>
+
+            <NavLink to="/login" exact className="navbar-link" activeStyle={{border: "1px #E4F6F6 solid"}}>
+              Log In
+            </NavLink>
         </span>
         )
       }
@@ -66,11 +63,13 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        <span className="captureLogo" style={{fontSize:"42px", fontWeight:"700", fontFamily:"Avenir Next", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em 1em"}}
-          >
-          Capture</span>
+        <div className="capture-logo">
+          Capture
+        </div>
 
-        {this.renderHTML()}
+        <div className="navbar-link-container">
+          {this.renderHTML()}
+        </div>
       </div>)
     }
 }

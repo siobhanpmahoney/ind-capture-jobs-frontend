@@ -9,7 +9,7 @@ const JobFilter = ({textSearchListener, categorySelectListener, levelSelectListe
       <div>
         <input type="text" onChange={textSearchListener} />
       </div>
-      <div className="jobFilterCategory" style={{backgroundColor:"white", padding:"0.5em", margin:"0.5em", boxShadow: "0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22)", height:"410px", fontSize:"14px", style:"inlineBlock", float:"left", gridAutoFlow:"column"}}>
+      <div className="jobFilterCategory">
 
         <h3>Select Job Category</h3>
           {categoryOptions.map((c) => {
@@ -19,7 +19,7 @@ const JobFilter = ({textSearchListener, categorySelectListener, levelSelectListe
           })}
       </div>
 
-      <div className="jobFilterLevel" style={{backgroundColor:"white", padding:"0.5em", margin:"0.5em", boxShadow: "0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22)", height:"410px", fontSize:"14px", style:"inlineBlock", float:"left", gridAutoFlow:"column"}}>
+      <div className="jobFilterLevel">
         <h3>Select Level</h3>
         <label>Internship
           <input type="checkbox" onChange={levelSelectListener} value="Internship" />
@@ -35,45 +35,45 @@ const JobFilter = ({textSearchListener, categorySelectListener, levelSelectListe
         <br /></label>
       </div>
 
-      <div className="jobFilterLocation"style={{backgroundColor:"white", padding:"0.5em", margin:"0.5em", boxShadow: "0 4px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22)", height:"410px", fontSize:"14px", style:"inlineBlock", float:"left", gridAutoFlow:"column"}}>
+      <div className="jobFilterLocation">
       <h3>Filter By City</h3>
-      <label style={{padding:"3px"}}>Austin, TX
+      <label>Austin, TX
       <input type="checkbox" onChange={locationSelectListener} value="Austin%2C%20TX" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>Boston, MA
+      <label>Boston, MA
       <input type="checkbox" onChange={locationSelectListener} value="Boston%2C%20MA" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>Chicago, IL
+      <label>Chicago, IL
       <input type="checkbox" onChange={locationSelectListener} value="Chicago%2C%20IL" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>Los Angeles, CA
+      <label>Los Angeles, CA
       <input type="checkbox" onChange={locationSelectListener} value="Los%20Angeles%2C%20CA" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>New York City, NY
+      <label>New York City, NY
       <input type="checkbox" onChange={locationSelectListener} value="New%20York%20City%2C%20NY" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>Portland, OR
+      <label>Portland, OR
       <input type="checkbox" onChange={locationSelectListener} value="Portland%2C%20OR" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>San Francisco, CA
+      <label>San Francisco, CA
       <input type="checkbox" onChange={locationSelectListener} value="San%20Francisco%2C%20CA" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>Seattle, WA
+      <label>Seattle, WA
       <input type="checkbox" onChange={locationSelectListener} value="Seattle%2C%20WA" />
       <br /></label>
 
-      <label style={{padding:"3px"}}>Washington, DC
+      <label>Washington, DC
       <input type="checkbox" onChange={locationSelectListener} value="Washington%2C%20DC" />
       <br /></label>
       </div>
-      <div className="searchButton" style={{gridColumn:"1/ span 1"}}>
+      <div className="searchButton">
         <input type="submit" value="search" onClick={handleJobSearchSubmit} />
       </div>
     </div>

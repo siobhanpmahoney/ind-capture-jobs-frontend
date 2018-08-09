@@ -57,15 +57,15 @@ class JobSearchResultItem extends React.Component {
 
 
     return (
-      <div className="jobSearchResultItem" style={{background:"white", color:"#3A4A4D", fontSize:"13.5px", style:"inlineBlock", margin:"1em"}}>
+      <div className="jobSearchResultItem">
 
-        <div style={{background:"#333F4A", margin:"-.25em"}}>
-        <span style={{fontSize:"14px", fontWeight: "600", display:"block", padding:"0.5em", color:"white", fontFamily:"Avenir"}}>{this.props.job.company.name}</span>
+        <div>
+        <span>{this.props.job.company.name}</span>
         </div>
 
 
-      <div style={{paddingTop:"0.5em"}}>
-      <span className="jobSearchResultCompany" style={{fontWeight:"500"}}>{this.props.job.name}</span> | <span className="jobSearchResultLevel">{this.renderLocationList()}</span>
+      <div>
+      <span className="jobSearchResultCompany">{this.props.job.name}</span> | <span className="jobSearchResultLevel">{this.renderLocationList()}</span>
         <div className="jobSearchResultLocation">{this.renderCategoryList()}</div>
 
 

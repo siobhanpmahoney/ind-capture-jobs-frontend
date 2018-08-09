@@ -64,7 +64,7 @@ class NavBar extends React.Component {
     return (
       <div className="navbar">
         <div className="capture-logo">
-          Capture
+          Capture <span className="logo-period">.</span>
         </div>
 
         <div className="navbar-link-container">

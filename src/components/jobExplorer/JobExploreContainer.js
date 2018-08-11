@@ -35,11 +35,15 @@ class JobExploreContainer extends React.Component {
   }
 
   categorySelectListener = (event) => {
+    console.log("category select event", event)
+    console.log("event.value", event[event.length-1].value)
     let categoryPicks = this.state.categorySelection.splice()
-    let category=event.value
-    if (event.value) {
-      categoryPicks.push(category)
-    }
+    let category=event[event.length-1].value
+
+
+      categoryPicks = [...categoryPicks, category]
+      console.log("categoryPicks after spreadOp", categoryPicks)
+
     // else {
     //   categoryPicks.splice(categoryPicks.indexOf(category), 1)
     // }
@@ -86,13 +90,13 @@ class JobExploreContainer extends React.Component {
 
 
     this.state.categorySelection.length > 0 ? categories = "&category=" + this.state.categorySelection.join("&category=") : categories = "";
+    console.log(categories)
 
     this.state.levelSelection.length > 0 ? levels = "&level=" + this.state.levelSelection.join("&level=") : levels = "";
 
     this.state.locationSelection.length > 0 ? locations = "&location=" + this.state.locationSelection.join("&location=") : locations = "";
 
     let currentResults = this.state.jobSearchResults.splice()
-    console.log("in handleSubmitJobSearchResults")
     let i = 0
 
 
@@ -104,13 +108,11 @@ class JobExploreContainer extends React.Component {
       // .then(json => json.results.map((res) => currentResults.push(res)))
       // .then(json => currentResults = [...json.results, ...currentResults ])
       .then(json => {
-        console.log("json.results", json.results)
-        console.log("currentResults", currentResults)
+
         currentResults = [...json.results, ...currentResults ]
-        console.log("currentResults after spreadOperator", currentResults)
-        // currentResults = this.resultsFiltered(currentResults)
+
         this.setState({
-          jobSearchResults: currentResults
+          jobSearchResults: this.resultsFiltered(currentResults)
         }, this.renderJobSearchResults)
       })
 
@@ -119,7 +121,6 @@ class JobExploreContainer extends React.Component {
       // currentResults.push(res))
 
 
-    console.log(currentResults)
     //         i++
     // }
 
@@ -135,9 +136,13 @@ class JobExploreContainer extends React.Component {
   }
 
   resultsFiltered = (jobs) => {
+    if (this.state.textSearch = "") {
+      return jobs
+    } else {
     return jobs.filter((res) => {
-      res.name.toLowerCase().includes(this.state.textSearch.toLowerCase()) || res.contents.toLowerCase().includes(this.state.textSearch.toLowerCase())
+      return res.name.toLowerCase().includes(this.state.textSearch.toLowerCase()) || res.contents.toLowerCase().includes(this.state.textSearch.toLowerCase())
     })
+  }
   }
 
   renderJobSearchResults = () => {
@@ -146,7 +151,7 @@ class JobExploreContainer extends React.Component {
   }
 
   render() {
-    console.log("in render — jobSearchResults", this.state.jobSearchResults)
+
 
     return (
       <div className="jobSearchContainer">

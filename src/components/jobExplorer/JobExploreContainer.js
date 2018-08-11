@@ -120,6 +120,7 @@ class JobExploreContainer extends React.Component {
         .then(response => response.json())
         .then(json => {
           currentResults = [...json.results, ...currentResults ]
+          currentResults = currentResults.filter((job) => job.company.name != "Goldman Sachs")
           console.log("currentResults after spread", currentResults)
           this.setState({
            jobSearchResults: this.resultsFiltered(currentResults)

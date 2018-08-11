@@ -100,36 +100,41 @@ class JobExploreContainer extends React.Component {
     let i = 0
 
 
-    // while (i < 3) {
-      let jobUrl = "https://api-v2.themuse.com/jobs?" + categories + levels + locations + "&api-key=34298a48276984c821dcc75e585710fd5b77389f6379e7097f3ed52181571eb6&page=1"
-      console.log("jobUrl", jobUrl)
-      fetch(jobUrl)
-      .then(response => response.json())
-      // .then(json => json.results.map((res) => currentResults.push(res)))
-      // .then(json => currentResults = [...json.results, ...currentResults ])
-      .then(json => {
 
-        currentResults = [...json.results, ...currentResults ]
-
-        this.setState({
-          jobSearchResults: this.resultsFiltered(currentResults)
-        }, this.renderJobSearchResults)
-      })
+      // let jobUrl = "https://api-v2.themuse.com/jobs?" + categories + levels + locations + "&api-key=34298a48276984c821dcc75e585710fd5b77389f6379e7097f3ed52181571eb6&page=1"
+      // fetch(jobUrl)
+      // .then(response => response.json())
+      // .then(json => {
+      //   currentResults = [...json.results, ...currentResults ]
+      //   this.setState({
+      //     jobSearchResults: this.resultsFiltered(currentResults)
+      //   }, this.renderJobSearchResults)
+      // })
 
 
-      // }
-      // currentResults.push(res))
 
 
-    //         i++
-    // }
+      while (i < 4) {
+        let jobUrl = "https://api-v2.themuse.com/jobs?" + categories + levels + locations + "&api-key=34298a48276984c821dcc75e585710fd5b77389f6379e7097f3ed52181571eb6&page=" + i
+        fetch(jobUrl)
+        .then(response => response.json())
+        .then(json => {
+          currentResults = [...json.results, ...currentResults ]
+          console.log("currentResults after spread", currentResults)
+          this.setState({
+           jobSearchResults: this.resultsFiltered(currentResults)
+         })
+        })
+        i++
+      }
 
-
-    // if (i >= 3) {
-      // let textFiltered = this.resultsFiltered(currentResults)
-      // console.log("after fetching - results", textFiltered)
-
-    // }
+      if (i >= 3) {
+        console.log("in conditional")
+        this.renderJobSearchResults
+        //  this.setState({
+        //   jobSearchResults: this.resultsFiltered(currentResults)
+        // }, this.renderJobSearchResults)
+      }
 
 
 

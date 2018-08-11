@@ -35,18 +35,9 @@ class JobExploreContainer extends React.Component {
   }
 
   categorySelectListener = (event) => {
-    console.log("category select event", event)
-    console.log("event.value", event[event.length-1].value)
     let categoryPicks = this.state.categorySelection.splice()
     let category=event[event.length-1].value
-
-
-      categoryPicks = [...categoryPicks, category]
-      console.log("categoryPicks after spreadOp", categoryPicks)
-
-    // else {
-    //   categoryPicks.splice(categoryPicks.indexOf(category), 1)
-    // }
+    categoryPicks = [...categoryPicks, category]
 
     this.setState({
       categorySelection: categoryPicks
@@ -55,13 +46,9 @@ class JobExploreContainer extends React.Component {
   }
 
   levelSelectListener = (event) => {
-    let levelPicks = this.state.levelSelection.slice()
-    let level=event.target.value
-    if (event.target.checked) {
-      levelPicks.push(level)
-    } else {
-      levelPicks.splice(levelPicks.indexOf(level), 1)
-    }
+    let levelPicks = this.state.levelSelection.splice()
+    let level=event[event.length-1].value
+    levelPicks = [...levelPicks, level]
 
     this.setState({
       levelSelection: levelPicks
@@ -69,14 +56,9 @@ class JobExploreContainer extends React.Component {
   }
 
   locationSelectListener = (event) => {
-    let locationPicks = this.state.locationSelection.slice()
-    let location=event.target.value
-    if (event.target.checked) {
-      locationPicks.push(location)
-    } else {
-      locationPicks.splice(locationPicks.indexOf(location), 1)
-    }
-
+    let locationPicks = this.state.locationSelection.splice()
+    let location=event[event.length-1].value
+    locationPicks = [...locationPicks, location]
     this.setState({
       locationSelection: locationPicks
     })

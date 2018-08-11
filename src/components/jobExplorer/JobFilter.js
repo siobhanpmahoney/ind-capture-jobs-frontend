@@ -102,7 +102,7 @@ class JobFilter extends React.Component {
                                     <br /></label>
                                   </div>
                                   <div className="searchButton">
-                                    <input type="submit" value="search" onClick={this.props.handleJobSearchSubmit} />
+                                    <button onClick={this.props.handleJobSearchSubmit}>Search</button>
                                   </div>
                                 </div>
 

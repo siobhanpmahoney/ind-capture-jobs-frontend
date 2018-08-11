@@ -5,15 +5,26 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
 
-const JobSearchResultList = ({jobSearchResults, savedJobs, addToSavedJobs}) => {
+class JobSearchResultList extends React.Component {
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.jobSearchResults != this.props.jobSearchResults) {
+      console.log("hi")
+      console.log(this.props.jobSearchResults)
+    }
+  }
+
+  render() {
+    console.log("in jobsearchresultlist component")
+    console.log("this.props", this.props)
   return(
     <div className="jobSearchResultList">
-      {jobSearchResults.map((j) => {
-        return <JobSearchResultItem job={j} key={j.id} savedJobs={savedJobs} addToSavedJobs={addToSavedJobs} museJobId={j.id} />
+      {this.props.jobSearchResults.map((j) => {
+        return <JobSearchResultItem job={j} key={j.id} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} museJobId={j.id} />
       })}
     </div>
   )
+}
 }
 
 
@@ -34,4 +45,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobSearchResultList));
+export default connect(mapStateToProps, mapDispatchToProps)(JobSearchResultList);

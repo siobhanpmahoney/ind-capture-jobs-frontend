@@ -21,12 +21,17 @@ class JobExploreContainer extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.jobSearchResults != this.state.jobSearchResults) {
+  //     this.renderJobSearchResults
+  //   }
+  // }
+
   textSearchListener = (event) => {
     let input = event.target.value
     this.setState({
       textSearch: input
     })
-    console.log(this.state.textSearch)
   }
 
   categorySelectListener = (event) => {
@@ -74,10 +79,11 @@ class JobExploreContainer extends React.Component {
   }
 
   handleJobSearchSubmit = (event) => {
-    event.preventDefault()
+
     let categories = ""
     let levels = ""
     let locations = ""
+
 
     this.state.categorySelection.length > 0 ? categories = "&category=" + this.state.categorySelection.join("&category=") : categories = "";
 
@@ -85,29 +91,63 @@ class JobExploreContainer extends React.Component {
 
     this.state.locationSelection.length > 0 ? locations = "&location=" + this.state.locationSelection.join("&location=") : locations = "";
 
-    let currentResults = this.state.jobSearchResults.slice()
+    let currentResults = this.state.jobSearchResults.splice()
+    console.log("in handleSubmitJobSearchResults")
     let i = 0
 
-    while (i < 10) {
-      let jobUrl = "https://api-v2.themuse.com/jobs?" + categories + levels + locations + "&api-key=82b2d1f745512b99a70044e6c6b316d86739a97719d5e88caf67a3f7fd788a00&page=" + i
+
+    // while (i < 3) {
+      let jobUrl = "https://api-v2.themuse.com/jobs?" + categories + levels + locations + "&api-key=34298a48276984c821dcc75e585710fd5b77389f6379e7097f3ed52181571eb6&page=1"
+      console.log("jobUrl", jobUrl)
       fetch(jobUrl)
       .then(response => response.json())
-      .then(json => json.results.filter((job) => job.company.name != "Goldman Sachs").map((res) => currentResults.push(res)))
-      i++
-    }
+      // .then(json => json.results.map((res) => currentResults.push(res)))
+      // .then(json => currentResults = [...json.results, ...currentResults ])
+      .then(json => {
+        console.log("json.results", json.results)
+        console.log("currentResults", currentResults)
+        currentResults = [...json.results, ...currentResults ]
+        console.log("currentResults after spreadOperator", currentResults)
+        // currentResults = this.resultsFiltered(currentResults)
+        this.setState({
+          jobSearchResults: currentResults
+        }, this.renderJobSearchResults)
+      })
 
-    console.log(this.state.textSearch)
+
+      // }
+      // currentResults.push(res))
 
 
-    this.setState({
-      jobSearchResults: currentResults
+    console.log(currentResults)
+    //         i++
+    // }
+
+
+    // if (i >= 3) {
+      // let textFiltered = this.resultsFiltered(currentResults)
+      // console.log("after fetching - results", textFiltered)
+
+    // }
+
+
+
+  }
+
+  resultsFiltered = (jobs) => {
+    return jobs.filter((res) => {
+      res.name.toLowerCase().includes(this.state.textSearch.toLowerCase()) || res.contents.toLowerCase().includes(this.state.textSearch.toLowerCase())
     })
   }
 
+  renderJobSearchResults = () => {
+
+    return <JobSearchResultList jobSearchResults = {this.state.jobSearchResults} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} />
+  }
+
   render() {
-    const jobSearchResults = this.state.jobSearchResults.filter((res) => {
-      res.name.toLowerCase().includes(this.state.textSearch.toLowerCase()) || res.contents.toLowerCase().includes(this.state.textSearch.toLowerCase())
-    })
+    console.log("in render — jobSearchResults", this.state.jobSearchResults)
+
     return (
       <div className="jobSearchContainer">
         <h2>Search for a Job!</h2>
@@ -115,7 +155,9 @@ class JobExploreContainer extends React.Component {
         <JobFilter textSearchListener={this.textSearchListener} categorySelection={this.state.categorySelection} categorySelectListener={this.categorySelectListener} levelSelectListener = {this.levelSelectListener} locationSelectListener={this.locationSelectListener} handleJobSearchSubmit={this.handleJobSearchSubmit} />
 
         <div className="searchContainerResults">
-          <JobSearchResultList jobSearchResults = {jobSearchResults} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} />
+
+          {this.renderJobSearchResults()}
+
         </div>
       </div>
     )
@@ -139,4 +181,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobExploreContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(JobExploreContainer);

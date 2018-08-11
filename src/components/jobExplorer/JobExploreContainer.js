@@ -5,6 +5,8 @@ import { withRouter } from 'react-router'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
+// import Select from 'react-select';
+// import 'react-select/dist/react-select.css'
 
 class JobExploreContainer extends React.Component {
   constructor(props) {
@@ -28,13 +30,14 @@ class JobExploreContainer extends React.Component {
   }
 
   categorySelectListener = (event) => {
-    let categoryPicks = this.state.categorySelection.slice()
-    let category=event.target.value
-    if (event.target.checked) {
+    let categoryPicks = this.state.categorySelection.splice()
+    let category=event.value
+    if (event.value) {
       categoryPicks.push(category)
-    } else {
-      categoryPicks.splice(categoryPicks.indexOf(category), 1)
     }
+    // else {
+    //   categoryPicks.splice(categoryPicks.indexOf(category), 1)
+    // }
 
     this.setState({
       categorySelection: categoryPicks
@@ -109,7 +112,7 @@ class JobExploreContainer extends React.Component {
       <div className="jobSearchContainer">
         <h2>Search for a Job!</h2>
 
-        <JobFilter textSearchListener={this.textSearchListener} categorySelectListener={this.categorySelectListener} levelSelectListener = {this.levelSelectListener} locationSelectListener={this.locationSelectListener} handleJobSearchSubmit={this.handleJobSearchSubmit} />
+        <JobFilter textSearchListener={this.textSearchListener} categorySelection={this.state.categorySelection} categorySelectListener={this.categorySelectListener} levelSelectListener = {this.levelSelectListener} locationSelectListener={this.locationSelectListener} handleJobSearchSubmit={this.handleJobSearchSubmit} />
 
         <div className="searchContainerResults">
           <JobSearchResultList jobSearchResults = {jobSearchResults} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} />

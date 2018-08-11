@@ -67,6 +67,14 @@ html, body {
   margin: 12px;
 }
 
+.jobSearchContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  flex: 1 0 auto;
+  padding: 0.5em;
+}
+
 
 .bookmarks {
   border-bottom: #3A4A4D 1px inset;

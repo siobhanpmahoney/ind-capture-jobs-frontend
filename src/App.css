@@ -177,7 +177,7 @@ input[type="text"].keyword-filter {
   height: 100%;
   width: 98%;
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   margin: 16px;
   justify-content: center;
@@ -191,8 +191,9 @@ input[type="text"].keyword-filter {
   line-height: 20px;
   position: relative;
   z-index: auto;
-  width: 100%;
-  display: block;
+  width: 45%;
+  float: right;
+  display: flex;
   padding: 12px 12px 12px 10px;
   margin: 12px;
   border: 1px solid rgba(0,0,0,.1);
@@ -213,7 +214,7 @@ input[type="text"].keyword-filter {
   position: relative;
   display: flex;
   flex-direction: column;
-
+  align-content:space-around;
   justify-content: center;
 
 
@@ -221,12 +222,11 @@ input[type="text"].keyword-filter {
 }
 
 .job-search-result-item-company-name {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
-    font-style: normal;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.75px;
     font-family: "Open Sans";
     text-rendering: optimizelegibility;
     box-sizing: content-box;

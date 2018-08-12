@@ -11,6 +11,7 @@ html, body {
   overflow-x: hidden;
   margin: 0px;
   font-family: "Open Sans";
+  background: white;
 }
 
 .App {
@@ -79,22 +80,23 @@ html, body {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+
+  /* margin: 16px; */
+  /* margin: 16px; */
   /* margin: 12px; */
 
 }
 
 .job-filter-wrapper {
-  background: #E4F6F6;
-  margin: 16px;
-
-
+  background: #dae2eb;
+  /* margin: 6px; */
   box-sizing: border-box;
   position: relative;
   width: 100%;
   height: auto;
   max-height: 100%;
   min-height: auto;
-  padding: 6px;
+
 
 }
 
@@ -107,7 +109,7 @@ html, body {
   flex: 1 1 auto;
   flex-wrap: wrap;
   justify-content: space-around;
-  background: #E4F6F6;
+
 }
 
 .job-filter-criteria {
@@ -131,13 +133,25 @@ html, body {
   padding: 8px;
 }
 
-.keyword-filter {
+input[type="text"].keyword-filter {
   box-shadow: none;
+  font-family: "Open Sans";
+  height: 16px;
+
+  box-shadow: 0px 0px !important;
+  border: hsl(0,0%,80%) solid 1px;
+  flex: 1 1 auto !important;
+  max-height: 32px;
+
 }
 
 .filter-input, .select-input {
   border-radius: 5px;
   flex: 1 1 auto;
+}
+
+.css-10odw4q {
+  white-space: nowrap;
 }
 
 .css-1aya2g8 {
@@ -150,6 +164,121 @@ html, body {
 
 .searchButton {
   display: block;
+  margin: 10px 20px;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: white;
+  color: #0176ff;
+  border: #0176ff solid 1px;
+  font-family: "Open Sans";
+}
+
+.job-search-result-list {
+  height: 100%;
+  width: 98%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px;
+  justify-content: center;
+
+}
+
+.job-search-result-item-wrapper {
+  font-size: 16px;
+  text-rendering: optimizelegibility;
+  box-sizing: border-box;
+  line-height: 20px;
+  position: relative;
+  z-index: auto;
+  width: 100%;
+  display: block;
+  padding: 12px 12px 12px 10px;
+  margin: 12px;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+.job-search-result-item-text {
+  flex: 1 1 auto;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 0;
+  font-family: "Open Sans";
+    line-height: 20px;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+
+  z-index: auto;
+}
+
+.job-search-result-item-company-name {
+    font-size: 16px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: "Open Sans";
+    text-rendering: optimizelegibility;
+    box-sizing: content-box;
+    text-overflow: ellipsis;
+    padding: 3px 0px;
+
+    -o-text-overflow: ellipsis;
+    display: block;
+    align-items: flex-start;
+}
+
+.job-search-result-item-job-title {
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -.283333px;
+    line-height: 24px;
+    margin: 0;
+    padding: 8px 0px;
+    letter-spacing: .5px;
+    font-family: "Open Sans";
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* padding: 12px 0; */
+    -o-text-overflow: ellipsis;
+    text-rendering: optimizelegibility;
+    visibility: visible;
+    text-overflow: ellipsis;
+    box-sizing: content-box;
+    display: block;
+    align-items: center;
+}
+
+.job-search-result-item-bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0px 6px 0px;
+}
+
+.job-search-result-item-link {
+  align-items: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.job-search-result-item-bookmark {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: flex-end;
 }
 
 

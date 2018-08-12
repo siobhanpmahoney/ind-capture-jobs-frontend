@@ -36,17 +36,16 @@ class JobSearchResultItem extends React.Component {
 
   dynamicIcon = () => {
 
-
     if (this.props.savedJobs.length < 1) {
-      return (<i className="material-icons" onClick={this.saveJob} style={{color:"#FF5370", display:"inlineBlock", border:"2px"}}>bookmark_border</i>)
+      return (<i className="material-icons job-search-result-item-bookmark" onClick={this.saveJob} style={{color:"#FF5370", display:"inlineBlock", border:"2px"}}>bookmark_border</i>)
     } else {
       if (this.props.savedJobs.find((job) => {
         return job.museId == this.props.museJobId
       })) {
-        return (<i className="material-icons" style={{color:"#FF5370", fontSize:"24px", display:"inlineBlock"}}>bookmark</i>)
+        return (<i className="material-icons job-search-result-item-bookmark" style={{color:"#FF5370", fontSize:"24px", display:"inlineBlock"}}>bookmark</i>)
       }
       else {
-        return (<i className="material-icons" onClick={this.saveJob} style={{color:"#FF5370", display:"inlineBlock"}}>bookmark_border</i>)
+        return (<i className="material-icons job-search-result-item-bookmark" onClick={this.saveJob} style={{color:"#FF5370", display:"inlineBlock"}}>bookmark_border</i>)
       }}
     }
 
@@ -57,22 +56,49 @@ class JobSearchResultItem extends React.Component {
 
 
     return (
-      <div className="jobSearchResultItem">
+      <div className="job-search-result-item-wrapper">
 
-        <div>
-        <span>{this.props.job.company.name}</span>
+        <div className="job-search-result-item-text">
+          <div className="job-search-result-item-company-name">
+            {this.props.job.company.name}
+          </div>
+
+          <div className="job-search-result-item-job-title">
+            {this.props.job.name}
+          </div>
+
+{/*
+          <div className="job-search-result-item-job-category">
+            {this.renderCategoryList()}
+          </div>
+        */}
+
+          <div className="job-search-result-item-location">
+          </div>
+
+          <div className="job-search-result-item-bottom-wrapper">
+
+            <Link className="job-search-result-item-link" to={`/search/jobs/${this.props.museJobId}`} props={this.props}>
+            Read More
+            </Link>
+
+            {this.dynamicIcon()}
+          </div>
+
+
         </div>
 
 
-      <div>
-      <span className="jobSearchResultCompany">{this.props.job.name}</span> | <span className="jobSearchResultLevel">{this.renderLocationList()}</span>
-        <div className="jobSearchResultLocation">{this.renderCategoryList()}</div>
 
 
-        <Link to={`/search/jobs/${this.props.museJobId}`} props={this.props}>Read More</Link><br />
-        {this.dynamicIcon()}
 
-        </div>
+
+
+
+
+
+
+
       </div>
     )
   }

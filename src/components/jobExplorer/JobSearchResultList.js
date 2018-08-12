@@ -9,16 +9,15 @@ class JobSearchResultList extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.jobSearchResults != this.props.jobSearchResults) {
-      console.log("hi")
       console.log(this.props.jobSearchResults)
     }
   }
 
   render() {
     console.log("in jobsearchresultlist component")
-    console.log("this.props", this.props)
+    console.log("this.props", this.props.jobSearchResults)
   return(
-    <div className="jobSearchResultList">
+    <div className="job-search-result-list">
       {this.props.jobSearchResults.map((j) => {
         return <JobSearchResultItem job={j} key={j.id} savedJobs={this.props.savedJobs} addToSavedJobs={this.props.addToSavedJobs} museJobId={j.id} />
       })}

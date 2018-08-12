@@ -72,7 +72,6 @@ class JobExploreContainer extends React.Component {
 
 
     this.state.categorySelection.length > 0 ? categories = "&category=" + this.state.categorySelection.join("&category=") : categories = "";
-    console.log(categories)
 
     this.state.levelSelection.length > 0 ? levels = "&level=" + this.state.levelSelection.join("&level=") : levels = "";
 
@@ -103,7 +102,7 @@ class JobExploreContainer extends React.Component {
         .then(json => {
           currentResults = [...json.results, ...currentResults ]
           currentResults = currentResults.filter((job) => job.company.name != "Goldman Sachs")
-          console.log("currentResults after spread", currentResults)
+
           this.setState({
            jobSearchResults: this.resultsFiltered(currentResults)
          })
@@ -112,7 +111,7 @@ class JobExploreContainer extends React.Component {
       }
 
       if (i >= 3) {
-        console.log("in conditional")
+    
         this.renderJobSearchResults
         //  this.setState({
         //   jobSearchResults: this.resultsFiltered(currentResults)

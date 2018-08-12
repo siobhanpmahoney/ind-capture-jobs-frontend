@@ -143,15 +143,15 @@ class JobExploreContainer extends React.Component {
 
     return (
       <div className="jobSearchContainer">
-        <h2>Search for a Job!</h2>
+        <h2 className="page-header">Search for a Job!</h2>
 
         <JobFilter textSearchListener={this.textSearchListener} categorySelection={this.state.categorySelection} categorySelectListener={this.categorySelectListener} levelSelectListener = {this.levelSelectListener} locationSelectListener={this.locationSelectListener} handleJobSearchSubmit={this.handleJobSearchSubmit} />
 
-        <div className="searchContainerResults">
 
-          {this.renderJobSearchResults()}
 
-        </div>
+        {this.renderJobSearchResults()}
+
+
       </div>
     )
   }

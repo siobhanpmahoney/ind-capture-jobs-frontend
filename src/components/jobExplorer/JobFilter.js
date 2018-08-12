@@ -38,13 +38,16 @@ class JobFilter extends React.Component {
     })
 
     return (
+      <div className="job-filter-wrapper">
       <div className="jobFilters">
-        <div>
-          <input type="text" onChange={this.props.textSearchListener} />
+        <div className="job-filter-criteria">
+            <div className="job-filter-header">Job Keyword</div>
+          <input type="text" className="filter-input keyword-filter" onChange={this.props.textSearchListener} />
         </div>
-        <div className="jobFilterCategory">
 
-          <h3>Select Job Category</h3>
+        <div className="job-filter-criteria">
+
+          <div className="job-filter-header">Job Level</div>
 
           <Select
             onChange={this.props.categorySelectListener}
@@ -56,38 +59,42 @@ class JobFilter extends React.Component {
 
         </div>
 
-        <div className="jobFilterLevel">
-          <h3>Select Level</h3>
-            <Select
-              onChange={this.props.levelSelectListener}
-              options={levels}
-              className="filter-input select-input"
-              multiple
-              isMulti
-              />
+        <div className="job-filter-criteria">
+          <div className="job-filter-header">Select Level</div>
+          <Select
+            onChange={this.props.levelSelectListener}
+            options={levels}
+            className="filter-input select-input"
+            multiple
+            isMulti
+            />
         </div>
 
-        <div className="jobFilterLocation">
-          <h3>Filter By City</h3>
+        <div className="job-filter-criteria">
+          <div className="job-filter-header">
+            Filter By City
+          </div>
 
-            <Select
-              onChange={this.props.locationSelectListener}
-              options={locations}
-              className="filter-input select-input"
-              multiple
-              isMulti
-              />
+          <Select
+            onChange={this.props.locationSelectListener}
+            options={locations}
+            className="filter-input select-input"
+            multiple
+            isMulti
+            />
 
         </div>
-              <div className="searchButton">
-                <button onClick={this.props.handleJobSearchSubmit}>Search</button>
-              </div>
-            </div>
-
-          )
 
 
-        }
-      }
 
-      export default JobFilter
+      </div>
+          <button onClick={this.props.handleJobSearchSubmit} className="searchButton">Search</button>
+      </div>
+
+    )
+
+
+  }
+}
+
+export default JobFilter

@@ -5,6 +5,7 @@ import JobDescription from './JobDescription'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
+import { formatDate } from '../helpers'
 
 class JobSearchResultItem extends React.Component {
   constructor(props) {
@@ -63,9 +64,15 @@ class JobSearchResultItem extends React.Component {
             {this.props.job.company.name}
           </div>
 
-          <div className="job-search-result-item-job-title">
+          {/*
+            <div className="job-search-result-item-job-title">
             {this.props.job.name}
           </div>
+          */}
+
+          <Link className="job-search-result-item-job-title" to={`/search/jobs/${this.props.museJobId}`} props={this.props}>
+            {this.props.job.name}
+              </Link>
 
 {/*
           <div className="job-search-result-item-job-category">
@@ -78,9 +85,14 @@ class JobSearchResultItem extends React.Component {
 
           <div className="job-search-result-item-bottom-wrapper">
 
+{/*
             <Link className="job-search-result-item-link" to={`/search/jobs/${this.props.museJobId}`} props={this.props}>
             Read More
             </Link>
+            */}
+            <div className="job-search-result-item-dated">
+              Posted {formatDate(this.props.job.publication_date)}
+            </div>
 
             {this.dynamicIcon()}
           </div>

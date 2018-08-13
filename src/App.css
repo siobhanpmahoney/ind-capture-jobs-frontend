@@ -268,11 +268,17 @@ input[type="text"].keyword-filter {
   padding: 12px 0px 6px 0px;
 }
 
-.job-search-result-item-link {
+/* .job-search-result-item-link {
+
+} */
+
+.job-search-result-item-dated {
   align-items: flex-end;
   display: inline-flex;
   flex-direction: column;
   align-self: flex-start;
+  font-size: 75%;
+  
 }
 
 .job-search-result-item-bookmark {

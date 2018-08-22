@@ -57,11 +57,11 @@ class MyJobsContainer extends React.Component {
       <div className="mySavedJobList">
         <h2>Saved Jobs</h2>
 
-        <div className="filters" style={{float:"left", padding:"1em"}}>
+        <div className="filters">
 
           <h4>Filter by... </h4>
-          <span className="industryFilter" style={{padding:"1em"}}>
-          <label style={{paddingRight:"1em"}}>Industry: <select name="company_industry" onChange={this.filterSelect}>
+          <span className="industryFilter">
+          <label>Industry: <select name="company_industry" onChange={this.filterSelect}>
               <option value=''>All</option>
             {this.props.savedIndustries.map((industry) => {
               return <option value={industry.name} name="company_industry">{industry.name}</option>
@@ -72,12 +72,12 @@ class MyJobsContainer extends React.Component {
           </span>
 
           <span className="appliedStatus">
-            <label style={{paddingRight:"1em"}}>Applied? <input type="checkbox" name="applied_status" onChange={this.filterSelect} /></label>
+            <label>Applied? <input type="checkbox" name="applied_status" onChange={this.filterSelect} /></label>
 
           </span>
         </div>
 
-        <div style={{clear:"both"}}>
+        <div>
         <MyJobsList user = {this.props.user} savedJobs={displayJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} loadSavedJob={this.props.loadSavedJob} />
         </div>
       </div>

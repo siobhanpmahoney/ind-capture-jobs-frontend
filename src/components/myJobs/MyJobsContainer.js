@@ -11,15 +11,28 @@ class MyJobsContainer extends React.Component {
     super(props)
 
     this.state = {
-      filterSelection: {},
+      filterSelection: {
+        applied: "",
+        industry: ""
+      },
       sortSelection: null
     }
   }
 
+  filterIndustrySelect = (event) => {
+    let industry = event.value
+    let currentState = this.state.filterSelection
+    currentState["industry"] = industry
+    this.setState({
+      filterSelection: currentState
+    })
+  }
+
+
 
 
   filterSelect = (event) => {
-    let filterName = event.target.name
+    let filterName =  event.target.name
     let filterValue = event.target.type === 'checkbox' ? event.target.checked : event.target.value
     let currentState = Object.assign({},
       this.state.filterSelection
@@ -35,7 +48,7 @@ class MyJobsContainer extends React.Component {
   }
 
   showJobs = () => {
-    if (this.state.filterSelection == {}) {
+    if (!this.state.filterSelection.applied && !this.state.filterSelection.industry) {
       return this.props.savedJobs
     } else {
       let filters = Object.keys(this.state.filterSelection)
@@ -69,7 +82,7 @@ class MyJobsContainer extends React.Component {
               </div>
 
               <Select
-                onChange={this.filterSelect}
+                onChange={this.filterIndustrySelect}
                 options={industries}
                 className="filter-input select-input"
                 multiple
@@ -82,7 +95,7 @@ class MyJobsContainer extends React.Component {
                 Applied?
               </div>
 
-              <input type="checkbox" name="applied_status" onChange={this.filterSelect} />
+              <input type="checkbox" name="applied" onChange={this.filterSelect} />
             </div>
 
 

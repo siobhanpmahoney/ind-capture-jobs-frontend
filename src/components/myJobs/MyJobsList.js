@@ -7,10 +7,10 @@ const MyJobsList = ({user, savedJobs, savedCompanies, savedNotes, loadSavedJob})
 
   return (
 
-    <div className="myJobList">
+    <div className="job-search-result-list">
 
 {savedJobs.map((j) => {
-  return <div><MyJobsItem job={j} key={j.id} user = {user} savedJobs={savedJobs} savedCompanies={savedCompanies} savedNotes={savedNotes} /></div>
+  return <MyJobsItem job={j} key={j.id} user = {user} savedJobs={savedJobs} savedCompanies={savedCompanies} savedNotes={savedNotes} />
 })}
 
     </div>

@@ -20,18 +20,21 @@ class MyJobsContainer extends React.Component {
   }
 
   filterIndustrySelect = (event) => {
-    let industry = event.value
-    let currentState = this.state.filterSelection
+    
+    let industry = event[0].value
+    console.log(event[0].value)
+    let currentState = Object.assign({}, this.state.filterSelection)
     currentState["industry"] = industry
     this.setState({
       filterSelection: currentState
-    })
+    }, this.showJobs)
   }
 
 
 
 
   filterSelect = (event) => {
+
     let filterName =  event.target.name
     let filterValue = event.target.type === 'checkbox' ? event.target.checked : event.target.value
     let currentState = Object.assign({},
@@ -47,26 +50,43 @@ class MyJobsContainer extends React.Component {
     })
   }
 
-  showJobs = () => {
-    if (!this.state.filterSelection.applied && !this.state.filterSelection.industry) {
-      return this.props.savedJobs
-    } else {
-      let filters = Object.keys(this.state.filterSelection)
-      let jobs = this.props.savedJobs.slice(0)
-      filters.forEach((f) => {
-        jobs = jobs.filter((job) => job[f] == this.state.filterSelection[f])
-      })
+  // showJobs = () => {
+  //   if (!this.state.filterSelection.applied && !this.state.filterSelection.industry) {
+  //     return this.props.savedJobs
+  //   } else {
+  //     let filters = Object.keys(this.state.filterSelection)
+  //     let jobs = []
+  //     filters.forEach((f) => {
+  //        jobs = Object.assign({}, jobs, this.props.savedJobs.slice(0).filter((job) => job[f] == this.state.filterSelection[f]))
+  //     })
+  //
+  //     return jobs
+  //   }
+  // }
 
-      return jobs
-    }
+  showJobs = () => {
+    if (this.state.filterSelection.applied == "" && this.state.filterSelection.industry == "") {
+        return this.props.savedJobs
+      } else {
+        let filteredJobs = this.props.savedJobs.slice(0)
+        debugger
+        if (this.state.filterSelection.industry != "") {
+          filteredJobs = filteredJobs.filter((job) => {
+            return job.company_industry == this.state.filterSelection.industry
+          })
+        }
+        return filteredJobs
+      }
   }
 
 
   render() {
     const displayJobs = this.showJobs()
     const industries = this.props.savedIndustries.map((industry) => {
+      console.log(industry.name)
         return {value: industry.name, label: industry.name,  name: "company_industry"}
       })
+      console.log(this.props.savedJobs)
 
     return (
       <div className="jobSearchContainer">

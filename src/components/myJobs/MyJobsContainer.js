@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
 import {BrowserRouter as Router, Route, Switch, Redirect, NavLink, Link, withRouter, HashRouter} from 'react-router-dom';
-
+import Select from 'react-select';
 
 class MyJobsContainer extends React.Component {
   constructor(props) {
@@ -50,37 +50,51 @@ class MyJobsContainer extends React.Component {
 
 
   render() {
-    console.log(this.props.savedJobs)
     const displayJobs = this.showJobs()
+    const industries = this.props.savedIndustries.map((industry) => {
+        return {value: industry.name, label: industry.name,  name: "company_industry"}
+      })
 
-    return(
-      <div className="mySavedJobList">
-        <h2>Saved Jobs</h2>
+    return (
+      <div className="jobSearchContainer">
+        <h2 className="page-header">Saved Jobs</h2>
 
-        <div className="filters">
+        <div className="job-filter-wrapper">
+          <div className="jobFilters">
 
-          <h4>Filter by... </h4>
-          <span className="industryFilter">
-          <label>Industry: <select name="company_industry" onChange={this.filterSelect}>
-              <option value=''>All</option>
-            {this.props.savedIndustries.map((industry) => {
-              return <option value={industry.name} name="company_industry">{industry.name}</option>
-            })}
-            </select>
+              <div className="job-filter-criteria">
+                  <div className="job-filter-header">
+                    Industry
+                  </div>
 
-          </label>
-          </span>
+                  <Select
+                    onChange={this.filterSelect}
+                    options={industries}
+                    className="filter-input select-input"
+                    multiple
+                    isMulti
+                    />
+
+
+
+
+
+
+
+
 
           <span className="appliedStatus">
             <label>Applied? <input type="checkbox" name="applied_status" onChange={this.filterSelect} /></label>
 
           </span>
         </div>
+        </div>
 
         <div>
         <MyJobsList user = {this.props.user} savedJobs={displayJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} loadSavedJob={this.props.loadSavedJob} />
         </div>
       </div>
+    </div>
     )
   }
 }

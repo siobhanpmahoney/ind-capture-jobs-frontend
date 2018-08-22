@@ -57,44 +57,42 @@ class MyJobsContainer extends React.Component {
 
     return (
       <div className="jobSearchContainer">
-        <h2 className="page-header">Saved Jobs</h2>
+        <h2 className="page-header">
+          Saved Jobs
+        </h2>
 
         <div className="job-filter-wrapper">
           <div className="jobFilters">
+            <div className="job-filter-criteria">
+              <div className="job-filter-header">
+                Industry
+              </div>
 
-              <div className="job-filter-criteria">
-                  <div className="job-filter-header">
-                    Industry
-                  </div>
+              <Select
+                onChange={this.filterSelect}
+                options={industries}
+                className="filter-input select-input"
+                multiple
+                isMulti
+                />
+            </div>
 
-                  <Select
-                    onChange={this.filterSelect}
-                    options={industries}
-                    className="filter-input select-input"
-                    multiple
-                    isMulti
-                    />
+            <div className="job-filter-criteria">
+              <div className="job-filter-header">
+                Applied?
+              </div>
 
-
-
-
-
-
+              <input type="checkbox" name="applied_status" onChange={this.filterSelect} />
+            </div>
 
 
 
-          <span className="appliedStatus">
-            <label>Applied? <input type="checkbox" name="applied_status" onChange={this.filterSelect} /></label>
 
-          </span>
         </div>
         </div>
 
-        <div>
         <MyJobsList user = {this.props.user} savedJobs={displayJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} loadSavedJob={this.props.loadSavedJob} />
-        </div>
       </div>
-    </div>
     )
   }
 }

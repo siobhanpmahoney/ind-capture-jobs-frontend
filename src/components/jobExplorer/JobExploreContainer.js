@@ -96,7 +96,7 @@ class JobExploreContainer extends React.Component {
 
 
       while (i < 4) {
-        let jobUrl = "https://api-v2.themuse.com/jobs?" + categories + levels + locations + "&api-key=34298a48276984c821dcc75e585710fd5b77389f6379e7097f3ed52181571eb6&page=" + i
+        let jobUrl = "https://www.themuse.com/api/public/jobs?" + categories + levels + locations + "&api-key=82b2d1f745512b99a70044e6c6b316d86739a97719d5e88caf67a3f7fd788a00&page=" + i
         fetch(jobUrl)
         .then(response => response.json())
         .then(json => {
@@ -111,7 +111,7 @@ class JobExploreContainer extends React.Component {
       }
 
       if (i >= 3) {
-    
+
         this.renderJobSearchResults
         //  this.setState({
         //   jobSearchResults: this.resultsFiltered(currentResults)
